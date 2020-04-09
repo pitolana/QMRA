@@ -3,28 +3,68 @@ title: "Paper"
 author: "Ana Karina"
 date: "4/7/2020"
 output: html_document
+bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+require(tidyverse)
 ```
 
-## R Markdown
+# Risk assessment for indirect transmission of SARS-CoV-2
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+References 
+@Adhikari2019
+@Chen2004
+@Ong2020
+@Beale2020
+@Kampf2020
+@Kwok2015
+@Wu2020
+@Yang2020
+@Yeo2020
+@VanDoremalen2020
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## Introduction
 
-```{r cars}
-summary(cars)
+Direct transmission (sneeze, cough, droplet inhalation) and indirect transmission (contact with surfaces and possible contaminated air).
+
+
+Hand washing has been proposed as one of the primary strategies to control transmission (REF). Studies with coronaviruses have shown than hygiene practices such as handwashing can reduce the risk of coronavirus infection @Beale2020. But there is not conclusive evidence of the effectiveness of hand-washing to reduce SARS-CoV-2 transmission @Yang2020.
+
+Medical students touch their faces 23 times per hour, 44% of those contacts were with a mucous membrane @Kwok2015.
+
+Air samples negative, but surface samples positive @Ong2020.
+
+Fecal-oral route has been suggested as a potential transmission route for SARS-CoV-2 @Yeo2020.
+
+“Toilet bowl and sink samples were positive, suggesting that viral shedding in stool” @Ong2020.
+
+"“aerosol and fomite transmission of SARS-CoV-2 is plausible, since the virus can remain viable and infectious in aerosols for hours and on surfaces up to days (depending on the inoculum shed).” @VanDoremalen2020
+
+Human coronaviruses can persist at room temperature on surfaces like plastic, metal, or glass for up to 9 days @Kampf2020. Therefore, touching contaminated surfaces offers a risk for exposure. 
+
+SARS-CoV-1 transmission has been associated with nosocomial spread. Transmission data suggests that, although indirect transmission through fomite mediated contacts is not the primary transmission route, it can lead to infection @Chen2004.
+
+A study of an outbreak of SARS CoV in Tawian showed that, out of the 232 SARS patients in the hospital, 31 patients (13 %)  were hospital acquired transmissions. Out of the 31 cases, most of the transmission occurred by direct contact with a known SARS patient, but 6/31 (~20%) of the transmissions could not be traced to direct contact with SARS patients. Sampling of surfaces for the RNA of coronavirus showed that surfaces such as drinking water buttons, beds and chairs were contaminated with coronavirus. Thus, the researchers postulated that indirect contact could have been the source of transmission @Chen2004.
+
+### QMRA 
+A QMRA of MERS-CoV was developed by Adhikari et all @Adhikari2019 to evaluate the risk for hospital transmission of coronavirus. They only considered the risk of infection due from droplets and aer(osolized particles, since that is the main transmission route. Most of the uncertainty associated with the model was due to the concentration of virus in the saliva. The researchers evaluated possible interventions and showed that the use of mask contributed significantly to the reduction of the risk (>90%), as well as increasing air exchange (up to 58% risk reduction).
+
+### Dose-response for SARS coronavirus
+“For translating this animal dose–response relationship to a human dose– response relationship, a generally accepted assumption that a death end point for an animal model may be used for examining the human risk of infection was applied (Haas, Rose, & Gerba, 2014)”
+
+\begin{equation}
+P_{inf}=1 - e^{-kd}
+\end{equation}
+
+
+```{r dose-response, include=FALSE}
+# Dose-Response Parameter (exponential): (0.00246 (0.00135; 0.00459)),5th, 50th, and 95th percentile values, Huang (2013), wikiQMRA, 
+
+
+
+
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
