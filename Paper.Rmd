@@ -29,6 +29,9 @@ References
 
 Direct transmission (sneeze, cough, droplet inhalation) and indirect transmission (contact with surfaces and possible contaminated air).
 
+Large droplets (>= 5um) that fall rapidly near the source contaminate proxime surfaces, making indirect human-surface transmission. 
+
+Coronaviruses spread between humans through direct (e.g., respiratory droplets) and indirect contacts (e.g., hand-to-surface, fomite-to-face). Although the use of face masks, and hand hygiene has been suggested as the primary interventions to reduce coronavirus transmission, little is known regarding the contribution of indirect (hand-to-surface, fomite-to-face) transmission. 
 
 Hand washing has been proposed as one of the primary strategies to control transmission (REF). Studies with coronaviruses have shown than hygiene practices such as handwashing can reduce the risk of coronavirus infection @Beale2020. But there is not conclusive evidence of the effectiveness of hand-washing to reduce SARS-CoV-2 transmission @Yang2020.
 
@@ -54,6 +57,8 @@ A QMRA of MERS-CoV was developed by Adhikari et all @Adhikari2019 to evaluate th
 ### Dose-response for SARS coronavirus
 “For translating this animal dose–response relationship to a human dose– response relationship, a generally accepted assumption that a death end point for an animal model may be used for examining the human risk of infection was applied (Haas, Rose, & Gerba, 2014)”
 
+The dose-response relationship was obtain from QMRA wiki <http://qmrawiki.org/experiments/sars>. The model is based on animal dose-response relationship. No human dose-response relationship is available for SARS Coronavirus. It is generally accepted to use animal models 
+
 \begin{equation}
 P_{inf}=1 - e^{-kd}
 \end{equation}
@@ -66,5 +71,19 @@ P_{inf}=1 - e^{-kd}
 
 
 ```
+
+## Limitations
+Most of the data used in the models are coming from laboratory experiments. The relevance of the laboratory conditions to real world conditions depend on the parameters. 
+
+Matrices: saliva, mucus, nasal secretions, lower respiratory tack secretions, urine, blood. 
+
+Since no randomized control trials will be runned and there are limits to the conclusions we can reach using epidemiological data, risk assesments provide an attempt to understand the risk associated with different activities. The results of this paper could inform policy. For example, trafick lights in the crossing stations could clausured momentaniely, the same than train buttons, 
+
+The dependence of temperature and humidity in the transfer rate of coronavirus is unclear. If temperature and humidity may play a role in non-dominant transmission pathways, such as indirect transfer, it would be hard to observe epidemiological studies. It is known that the survival of viruses on surfaces is dependent on environmental factors such as temperature and humidity (REF). Similarly, the transfer rate of viruses varies with humidity (REF). NEvertheless, if only a small fraction of the transmission occurs through indirect transfer we wont see it. 
+
+We recomend to further develop risk assessment models, incorporating other transmission routes, to understand the relative countribution of each route. 
+
+
+
 
 
