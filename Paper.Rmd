@@ -25,6 +25,10 @@ References
 @Yeo2020
 @VanDoremalen2020
 
+Risk assessment parameters
+@AuYeung2008  -> fractional surface area of finger
+@
+
 ## Introduction
 
 Direct transmission (sneeze, cough, droplet inhalation) and indirect transmission (contact with surfaces and possible contaminated air).

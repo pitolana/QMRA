@@ -1,6 +1,7 @@
 # Processing data of concentration of SARS-CoV-2 samples in sputum (taken as saliva)
-# Data obtained from: XXX
-
+# Data obtained from: 
+    #"Viral load of SARS-CoV-2 in clinical samples" (Pan, 2020) 
+    #"Virological assessment of hospitalized cases of coronavirus disease 2019" (Wölfel,2020)
 
 # setup -------------------------------------------------------------------
 # external libraries
@@ -10,7 +11,7 @@ infile = "data/raw/concentrationsaliva.csv"
 #outfile = "data/processed/decay.csv"
 
 # read data 
-df_C_sp <- read.csv (file=infile, header = TRUE, sep=",")
+df_C_sp <- read.csv (file=infile, header = TRUE, sep=",") # C_sp is viral load in log10 copies/ml
 
 
 # output -------------------------------------------------------------------

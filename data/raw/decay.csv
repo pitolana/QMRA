@@ -1,4 +1,4 @@
-﻿condition,halflife,lowCI,highCI
+﻿material,halflife,lowCI,highCI
 aerosol,1.09,0.64,2.64
 copper,0.774,0.427,1.19
 cardboard,3.46,2.34,5
