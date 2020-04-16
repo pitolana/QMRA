@@ -58,6 +58,9 @@ A study of an outbreak of SARS CoV in Tawian showed that, out of the 232 SARS pa
 ### QMRA 
 A QMRA of MERS-CoV was developed by Adhikari et all @Adhikari2019 to evaluate the risk for hospital transmission of coronavirus. They only considered the risk of infection due from droplets and aer(osolized particles, since that is the main transmission route. Most of the uncertainty associated with the model was due to the concentration of virus in the saliva. The researchers evaluated possible interventions and showed that the use of mask contributed significantly to the reduction of the risk (>90%), as well as increasing air exchange (up to 58% risk reduction).
 
+He et al. analized the patterns of viral sheddin of 94 COVID-19 patients. They also suggested substantial presymptomatic transmission @He2020. "we have estimated that viral shedding of patients
+with laboratory-confirmed COVID-19 peaked on or before symptom onset, and a substantial proportion of transmission probably occurred before first symptoms in the index case. More inclusive criteria for contact tracing to capture potential transmission events 2 to 3 days before symptom onset should be urgently considered for effective control of the outbreak"
+
 ### Dose-response for SARS coronavirus
 “For translating this animal dose–response relationship to a human dose– response relationship, a generally accepted assumption that a death end point for an animal model may be used for examining the human risk of infection was applied (Haas, Rose, & Gerba, 2014)”
 
