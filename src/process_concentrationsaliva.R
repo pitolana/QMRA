@@ -11,7 +11,7 @@ infile = "data/raw/concentrationsaliva.csv"
 #outfile = "data/processed/decay.csv"
 
 # read data 
-df_C_sp <- read.csv (file=infile, header = TRUE, sep=",") # C_sp is viral load in log10 copies/ml
+df_Csp <- read.csv (file=infile, header = TRUE, sep=",") # C_sp is viral load in log10 copies/ml
 
 
 # output -------------------------------------------------------------------

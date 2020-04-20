@@ -27,13 +27,13 @@ TE_hm_w <- mean(df_TE_hm$pt_wet)
 sd_TE_hm_d <- sd(df_TE_hm$pt_wet)
 
 # Calculating the TE_hm as a function of time 
-dryingtime= 10
+# dryingtime= 10
 
-if t <= dryingtime, m(t) = t/dryingtime 
-if t > dryingtime, m(t)=1
+# if t <= dryingtime, m(t) = t/dryingtime 
+# if t > dryingtime, m(t)=1
 
-TE_hm(t) = m(t) * TE_hm_d + (1-m (t)) * TE_hm_w
-sd_TE_hm(t)=
+# TE_hm(t) = m(t) * TE_hm_d + (1-m (t)) * TE_hm_w
+# sd_TE_hm(t)=
 
     
 # output -------------------------------------------------------------------
