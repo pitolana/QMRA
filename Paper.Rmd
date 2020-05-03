@@ -11,93 +11,119 @@ knitr::opts_chunk$set(echo = TRUE)
 require(tidyverse)
 ```
 
-# Risk assessment for indirect transmission of SARS-CoV-2
 
-References 
-@Adhikari2019
-@Chen2004
-@Ong2020
-@Beale2020
-@Kampf2020
-@Kwok2015
-@Wu2020
-@Yang2020
-@Yeo2020
-@VanDoremalen2020
+# Risk of infection from touching surfaces contaminated with SARS-CoV-2
 
-Risk assessment parameters
-@AuYeung2008  -> fractional surface area of finger
-@
+## Abstract
+
 
 ## Introduction
 
-Direct transmission (sneeze, cough, droplet inhalation) and indirect transmission (contact with surfaces and possible contaminated air).
+If no contrameasures are taken, viruses can spread thorugh the space populated by the human host at a high speed, as we have observed @BarOn2020.
 
-Large droplets (>= 5um) that fall rapidly near the source contaminate proxime surfaces, making indirect human-surface transmission. 
+The CDC and WHO have highligthed two main transmission routes: direct transmission or person-to-person transmission (respiratory droplets produced while talking, caughin, or sneezing), and indirect transmission or surface mediated transmission (touching a contaminated surface followed by touching mucose membrains in the face such as mouth or nose) @WHO2020 @CDC2020. 
 
-Coronaviruses spread between humans through direct (e.g., respiratory droplets) and indirect contacts (e.g., hand-to-surface, fomite-to-face). Although the use of face masks, and hand hygiene has been suggested as the primary interventions to reduce coronavirus transmission, little is known regarding the contribution of indirect (hand-to-surface, fomite-to-face) transmission. 
+SARS-CoV-1 transmission has been associated with nosocomial spread. Transmission data suggests that, although indirect transmission through fomite mediated contacts is not the primary transmission route, it can lead to infection @Chen2004. A study of an outbreak of SARS CoV in Tawian showed that, out of the 232 SARS patients in the hospital, 31 patients (13 %)  were hospital acquired transmissions. Out of the 31 cases, most of the transmission occurred by direct contact with a known SARS patient, but 6/31 (~20%) of the transmissions could not be traced to direct contact with SARS patients. Sampling of surfaces for the RNA of coronavirus showed that surfaces such as drinking water buttons, beds and chairs were contaminated with coronavirus. Thus, the researchers postulated that indirect contact could have been the source of transmission @Chen2004.
 
-Hand washing has been proposed as one of the primary strategies to control transmission (REF). Studies with coronaviruses have shown than hygiene practices such as handwashing can reduce the risk of coronavirus infection @Beale2020. But there is not conclusive evidence of the effectiveness of hand-washing to reduce SARS-CoV-2 transmission @Yang2020.
+Therefore, touching contaminated surfaces offers a risk for exposure. 
+Inspite its importance, there is not a lot of information regarding the magnitud of risk associeted with touching contaminated surfaces @BarOn2020.
 
-Medical students touch their faces 23 times per hour, 44% of those contacts were with a mucous membrane @Kwok2015.
+Hand hygiene interventions and surface desinfection have been hihgligthed as one of the primary strategies to control transmission @Mcclellan2020. Studies with coronaviruses have shown than hygiene practices such as handwashing can reduce the risk of coronavirus infection @Beale2020. But there is not conclusive evidence of the effectiveness of hand-washing to reduce SARS-CoV-2 transmission @Yang2020.
 
-Air samples negative, but surface samples positive @Ong2020.
-
-Fecal-oral route has been suggested as a potential transmission route for SARS-CoV-2 @Yeo2020.
-
-“Toilet bowl and sink samples were positive, suggesting that viral shedding in stool” @Ong2020.
-
-"“aerosol and fomite transmission of SARS-CoV-2 is plausible, since the virus can remain viable and infectious in aerosols for hours and on surfaces up to days (depending on the inoculum shed).” @VanDoremalen2020
-
-Human coronaviruses can persist at room temperature on surfaces like plastic, metal, or glass for up to 9 days @Kampf2020. Therefore, touching contaminated surfaces offers a risk for exposure. 
-
-SARS-CoV-1 transmission has been associated with nosocomial spread. Transmission data suggests that, although indirect transmission through fomite mediated contacts is not the primary transmission route, it can lead to infection @Chen2004.
-
-A study of an outbreak of SARS CoV in Tawian showed that, out of the 232 SARS patients in the hospital, 31 patients (13 %)  were hospital acquired transmissions. Out of the 31 cases, most of the transmission occurred by direct contact with a known SARS patient, but 6/31 (~20%) of the transmissions could not be traced to direct contact with SARS patients. Sampling of surfaces for the RNA of coronavirus showed that surfaces such as drinking water buttons, beds and chairs were contaminated with coronavirus. Thus, the researchers postulated that indirect contact could have been the source of transmission @Chen2004.
-
-Part of the WHO COVID-19 strategy is to "engaging and educating the public to ensure protective measures are implemented effectively as changes are made to existing policies and restrictions." @WHO2020a
-It is necesary to transition into more flexible measures. 
-
-### QMRA 
 A QMRA of MERS-CoV was developed by Adhikari et all @Adhikari2019 to evaluate the risk for hospital transmission of coronavirus. They only considered the risk of infection due from droplets and aer(osolized particles, since that is the main transmission route. Most of the uncertainty associated with the model was due to the concentration of virus in the saliva. The researchers evaluated possible interventions and showed that the use of mask contributed significantly to the reduction of the risk (>90%), as well as increasing air exchange (up to 58% risk reduction).
 
-He et al. analized the patterns of viral sheddin of 94 COVID-19 patients. They also suggested substantial presymptomatic transmission @He2020. "we have estimated that viral shedding of patients
-with laboratory-confirmed COVID-19 peaked on or before symptom onset, and a substantial proportion of transmission probably occurred before first symptoms in the index case. More inclusive criteria for contact tracing to capture potential transmission events 2 to 3 days before symptom onset should be urgently considered for effective control of the outbreak"
+## Materials and Methods 
+### Hazard Identification
+This risk assessment is designed to explore the risks associated indirect transmission of SARS-CoV-2. 
 
-### Dose-response for SARS coronavirus
+Air samples negative, but surface samples positive @Ong2020.
+Human coronaviruses can persist at room temperature on surfaces like plastic, metal, or glass for up to 9 days @Kampf2020. 
+
+### Exposure Assessment 
+Medical students touch their faces 23 times per hour, 44% of those contacts were with a mucous membrane @Kwok2015. 
+
+Two expossure scenarios were modeled. 
+*Scenario 1. Single touch.*
+Frequently touched buttons (Traffic light buttons, train buttons). Supermarket products. 
+
+*Scenatio 2. Multiple touches.*
+ATM machines.
+
+(Insert diagram)
+
+
+#### SARS-CoV-2 Concentration in saliva samples
+
+*Conversing viral RNA data to infectious viruses*
+There was a lack of data regarding the viral loads of infectious viruses in the saliva of infected individuals. Therefore, we had to translate the available concentration data, obtained using quantitative reverse-transcription polymerase chain reaction (RT-qPCR), which gives a measure of the number of copies present a viral RNA sample to infectious virus data. Althoug not ideal, this is an approach often used in risk assessment models, given the complexity of obtaining infectivity data of a number of viral  pathogens (REF). 
+To do this we ...
+
+*Viral shedding and infection potential* 
+Care most been taken when using viral RNA data to drive conclusions about infective viruses released by the patient, as PCR data does not distinguish infectios and non-infectious virus @Atkinson2020. The use of conversion factor from PCR data has been used in the micribial risk assessment context, due to the limit availability of infetivity data (REF). In the absence of GC:PFU data on SARS-CoV-2, we used the relationship reported for Pandemic influenza virus H1N1, as both are enveloped, RNA viruses with similar sizes. 
+
+### Dose Response for SARS-CoV
 “For translating this animal dose–response relationship to a human dose– response relationship, a generally accepted assumption that a death end point for an animal model may be used for examining the human risk of infection was applied (Haas, Rose, & Gerba, 2014)”
 
-The dose-response relationship was obtain from QMRA wiki <http://qmrawiki.org/experiments/sars>. The model is based on animal dose-response relationship. No human dose-response relationship is available for SARS Coronavirus. It is generally accepted to use animal models 
+The dose-response relationship was obtain from QMRA wiki <http://qmrawiki.org/experiments/sars>. The model is based on animal dose-response relationship. No human dose-response relationship is available for SARS Coronavirus. It is generally accepted to use animal models in QMRA if human data is not available (REF)
 
 \begin{equation}
 P_{inf}=1 - e^{-kd}
 \end{equation}
 
+### Risk Characterization 
+Monte Carlo simulation method is used to incorporate uncertainty and variability of the input parameters in the risk characterization.
 
+### Sensitivity analysis
+
+A sensitivity analysis was performed to investigate hot the variabilty and uncertainty of the parameters in the model onfluenced the estimated risks. The sensitivity was estimated using Spearman correlation coefficients between the inputs and outputs of the model.
+
+
+( Insert table of parameters )
+
+## Results and Discussion
 ```{r dose-response, include=FALSE}
-# Dose-Response Parameter (exponential): (0.00246 (0.00135; 0.00459)),5th, 50th, and 95th percentile values, Huang (2013), wikiQMRA, 
-
-
-
 
 ```
 
-## Limitations
+Since no randomized control trials will be runned and there are limits to the conclusions we can reach using epidemiological data, risk assesments provide an attempt to understand the risk associated with different activities. The results of this paper could inform policy. For example, trafick lights in the crossing stations could clausured momentaniely, the same than train buttons.
+
+The dependence of temperature and humidity in the transfer rate of coronavirus is unclear. If temperature and humidity may play a role in non-dominant transmission pathways, such as indirect transfer, it would be hard to observe epidemiological studies. It is known that the survival of viruses on surfaces is dependent on environmental factors such as temperature and humidity (REF). Similarly, the transfer rate of viruses varies with humidity (REF). Nevertheless, if only a small fraction of the transmission occurs through indirect transfer we wont see it. 
+
+The sensitivity analysis shows that XXX parapeters are responsible for XX % of the risk variation of the model. Collecting more data on these parameters could reduce uncertainty.
+
+It is important to notice that the effectiveness of interventions such as hand washing depends not only on many factors which include: the hand-wasihng technique, the suceptibility of the virus to phisical and chemical desinfection, and the relative contribution of the indirect transfer of viruses to the overal infection risk. As it has been pointed out, thand hygiene should be promoted but the risk of overemphasizing it without more intormation could turn out to be negative (Yang, 2020). ...  ("risk compensation"?).
+
+### Limitations
 Most of the data used in the models are coming from laboratory experiments. The relevance of the laboratory conditions to real world conditions depend on the parameters. 
-
-Matrices: saliva, mucus, nasal secretions, lower respiratory tack secretions, urine, blood. 
-
-Since no randomized control trials will be runned and there are limits to the conclusions we can reach using epidemiological data, risk assesments provide an attempt to understand the risk associated with different activities. The results of this paper could inform policy. For example, trafick lights in the crossing stations could clausured momentaniely, the same than train buttons, 
-
-The dependence of temperature and humidity in the transfer rate of coronavirus is unclear. If temperature and humidity may play a role in non-dominant transmission pathways, such as indirect transfer, it would be hard to observe epidemiological studies. It is known that the survival of viruses on surfaces is dependent on environmental factors such as temperature and humidity (REF). Similarly, the transfer rate of viruses varies with humidity (REF). NEvertheless, if only a small fraction of the transmission occurs through indirect transfer we wont see it. 
 
 We recomend to further develop risk assessment models, incorporating other transmission routes, to understand the relative countribution of each route. 
 
+Even though this risk assessment model relies on many assumptions, some with high uncertainty around them, and the risk caucluation is hihgly simplidied, this model can: provide insigts into the possible effects that different interventions can have in reducing the spread of SARS-CoV-2, serve as a first step in the pathway of building more complex models that allow exploring the relative contribution that different transmission routes could have in spreddin the disease. 
 
-#### Viral shedding and infection potential 
-Care most been taken when using viral RNA data to drive conclusions about infective viruses released by the patient, as PCR data does not distinguish infectios and non-infectious virus @Atkinson2020. The use of conversion factor from PCR data has been used in the micribial risk assessment context, due to the limit availability of infetivity data (REF). 
+## Supporting Information
+## Author Information
+## Aknowledgements 
+## References 
 
-In the absence of GC:PFU data on SARS-CoV-2, we used the relationship reported for Pandemic influenza virus H1N1, as both are enveloped, RNA viruses with similar sizes. 
+
+#### More info that could be added
+
+
+Large droplets (>= 5um) that fall rapidly near the source contaminate proxime surfaces, making indirect human-surface transmission. 
+
+Fecal-oral route has been suggested as a potential transmission route for SARS-CoV-2 @Yeo2020.
+“Toilet bowl and sink samples were positive, suggesting that viral shedding in stool” @Ong2020.
+
+"“aerosol and fomite transmission of SARS-CoV-2 is plausible, since the virus can remain viable and infectious in aerosols for hours and on surfaces up to days (depending on the inoculum shed).” @VanDoremalen2020
+
+Part of the WHO COVID-19 strategy is to "engaging and educating the public to ensure protective measures are implemented effectively as changes are made to existing policies and restrictions." @WHO2020a
+
+He et al. analized the patterns of viral sheddin of 94 COVID-19 patients. They also suggested substantial presymptomatic transmission @He2020. "we have estimated that viral shedding of patients
+with laboratory-confirmed COVID-19 peaked on or before symptom onset, and a substantial proportion of transmission probably occurred before first symptoms in the index case. More inclusive criteria for contact tracing to capture potential transmission events 2 to 3 days before symptom onset should be urgently considered for effective control of the outbreak"
+
+Matrices: saliva, mucus, nasal secretions, lower respiratory tack secretions, urine, blood. 
+
+
 
 
 

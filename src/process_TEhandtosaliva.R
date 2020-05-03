@@ -9,31 +9,41 @@
 # read and process data  --------------------------------------------------
 infile = "data/raw/TEhandtosaliva.csv"
 #outfile = "data/processed/TEhandtosaliva.csv"
+#function TEhm
 
 # read data 
 df_TE_hm <- read.csv (file=infile, header = TRUE, sep=",")
 
 #-----------------
 
-# dryingtime [min] = drying time for average droplet size, assumtion. 
+# dt [min] = drying time for average droplet size, assumtion. 
 # TE_hm_d [%] = transfer efficiency from hand to mucous membrane (dry)
 # TE_hm_w [%] = transfer efficiency from hand to mucous membrane (wet)
 # TE_hm [%]= transfer efficiency from hand to mucous membrane (dry and wet)
 
-TE_hm_d <- mean(df_TE_hm$pt_dry)
-sd_TE_hm_d <- sd(df_TE_hm$pt_dry)
+TE_hm_d <- mean(df_TE_hm$pt_dry) # mean TEhm when dry
+sd_TE_hm_d <- sd(df_TE_hm$pt_dry) # sd TEhm when dry
 
-TE_hm_w <- mean(df_TE_hm$pt_wet)
-sd_TE_hm_d <- sd(df_TE_hm$pt_wet)
+TE_hm_w <- mean(df_TE_hm$pt_wet)  # mean TEhm when wet
+sd_TE_hm_d <- sd(df_TE_hm$pt_wet)  # sd TEhm when wet
 
-# Calculating the TE_hm as a function of time 
-# dryingtime= 10
+# Creating a function to estimate the TEhm as a function of time after inoculation (t)
+dt = 10
+sinNum = 100
+t = 2
 
-# if t <= dryingtime, m(t) = t/dryingtime 
-# if t > dryingtime, m(t)=1
+## Question, can t be a variable with uncertainty? 
 
-# TE_hm(t) = m(t) * TE_hm_d + (1-m (t)) * TE_hm_w
-# sd_TE_hm(t)=
+f_TEhm <- function (t, simNum, dt) {
+    TEhm <- rnorm(simNum, , )
+}
+
+
+ if t <= dryingtime, m(t) = t/dryingtime 
+ if t > dryingtime, m(t)=1
+
+ TE_hm(t) = m(t) * TE_hm_d + (1-m (t)) * TE_hm_w
+ sd_TE_hm(t)=
 
     
 # output -------------------------------------------------------------------
