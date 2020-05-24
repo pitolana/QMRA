@@ -15,7 +15,7 @@ t_ATM_sd <-  sd(df_ATM$t_ATM)
 # ATM visits per hour
 visits <- df_ATM$visits_hr
 visits <- visits[!is.na(visits)]
-visits_mean <- mean(visits)
+visits_mean <- mean(visits) # Change the distribution once I have all data
 visits_sd <- sd(visits)
 
 # output -------------------------------------------------------------------
