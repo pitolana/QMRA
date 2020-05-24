@@ -43,7 +43,7 @@ df <- as.data.frame(cbind(GC_TCID50, Vs, Ncough_min, Csp, FSAsf, FSAfm, TEhm, t_
 # Calcuated parameters
 for (i in 1:simNum)
 {
-    df$Cs_0[i] <- (df$Csp [i] / df$Vs[i]) / ((4 *pi* x^2)/0.1) #correct with 10% of the area of sphere 
+    df$Cs_0[i] <- ((df$Csp [i]/GC_TCID50[i]) / df$Vs[i]) / ((4 *pi* x^2)/0.1) #correct with 10% of the area of sphere 
     df$Cs_1[i] <- df$Cs_0[i] * exp(- n_stl[i] * t_btw_ATM[i])
     df$Nf[i]   <- df$Cs_1[i] * df$FSAsf [i] * df$TEsh_stl[i]
     df$Dose[i] <- df$Nf[i] * df$FSAfm [i] * df$TEhm [i]
@@ -59,9 +59,14 @@ c_Csp <- cor.test(df$P_inf, df$Csp, method = "spearman", exact=F)
 c_Vs <- cor.test(df$P_inf, df$Vs, method = "spearman", exact=F)   
 c_t_btw_ATM <- cor.test(df$P_inf, df$t_btw_ATM, method = "spearman", exact=F)  
 c_n <- cor.test(df$P_inf, df$n_stl, method = "spearman", exact=F)  
+c_TEsh <- cor.test(df$P_inf, df$TEsh_stl, method = "spearman", exact=F)  
+c_GC_inf <- cor.test(df$P_inf, df$GC_TCID50, method = "spearman", exact=F)  
 
-corRes <- data.frame(type = c("TEhm", "Csp", "Vs", "t_btw_ATM","n" ),
-                     rho = c(c_TEhm$estimate, c_Csp$estimate, c_Vs$estimate, c_t_btw_ATM$estimate, c_n$estimate))
+
+
+corRes <- data.frame(type = c("TEhm", "Csp", "Vs", "t_btw_ATM","n", "TEsh", "GC_inf"),
+                     rho = c(c_TEhm$estimate, c_Csp$estimate, c_Vs$estimate, c_t_btw_ATM$estimate, c_n$estimate, 
+                             c_TEsh$estimate, c_GC_inf$estimate))
 
 ggplot(data = corRes, aes(x = type, y = rho)) + geom_bar(stat = "identity") 
 + theme_minimal() + xlab("") + theme(axis.text.x = element_text(angle = 10))
