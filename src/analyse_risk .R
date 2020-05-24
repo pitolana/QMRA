@@ -1,14 +1,13 @@
-
-
 # setup -------------------------------------------------------------------
 # external libraries
 library(tidyverse) 
+library(truncnorm)
 
 # read and process data  --------------------------------------------------
-source ("src/process_concentrationsaliva.R") # Wölfel 2020 and Pan 2020
-#source ("src/process_TEhandtosaliva.R") # Pitol 2017
-source ("src/process_TEsurfacetohand.R") # Lopez 2013
-source ("src/process_ATM_observation.R") # Observation ATM
+source ("src/process_concentrationsaliva.R") # Wölfel 2020, Pan 2020, Kim 2020
+source ("src/process_TEhandtosaliva.R") # Pitol 2017 (dry transfer from hand to saliva)
+source ("src/process_TEsurfacetohand.R") # Lopez 2013 (high himidity?)
+source ("src/process_ATM_observation.R") # Observation ATM 
 source ("src/process_decay.R") # van Doremalen 2020
 
 ##    Scenario 1 : Single touch, ATM machine 
@@ -16,37 +15,34 @@ source ("src/process_decay.R") # van Doremalen 2020
 # Simulation parameters
 simNum = 100 #number of simulations
 
-# Constant parameters
-GC_TCID50 <- 0.01 # Proportion of infective gene copies [GC:TCID50]
-cough_ang <- pi/2 # 
-t <- 2 # Time since inoculation 
-t_k <- 5 # Time doing the activity
-x <- 4 # Inoculation distance
-
-# Dose-Response Parameter (exponential): 
-# (0.00246 (0.00135; 0.00459)),5th, 50th, and 95th percentile values, Huang (2013), wikiQMRA, 
-
 # Parameters from distributions and datasets
+GC_TCID50 <- runif(simNum, 100, 1000) # Proportion of infective gene copies [GC:TCID50],  
 Vs <- runif(simNum, 0.0396, 0.0484) # Volume of saliva per cough, Nicas and Jones (2009)
-Ncough_min <- rnorm(simNum, 0.57, 1) # Number of coughs per minute, Leung (2020)
-Csp <- sample(df_Csp$C_sp, size=simNum, replace = TRUE) # Concentration of virus in sputum [GC/ml] 
-TEsh_stl <- rnorm(simNum, df_TE_sh$pt_mean[14], df_TE_sh$pt_sd[14]) # TE from surface to hand for stainless steel RH=[40-65%]
-t_0.5_stl <- runif(simNum, df_decay$lowCI[4], df_decay$highCI[4]) # Must correct this
+Ncough_min <- rtruncnorm(simNum, 0, Inf, 0.57, 1) # Number of coughs per minute, Leung (2020)
+TEhm <- rtruncnorm(simNum, 0, 1, TE_hm_d, sd_TE_hm_d) # Transfer Efficiency from hand to saliva, Pitol 2017
+
 FSAsf <- runif(simNum, 0.5, 1) # Fraction of the finger in contact with the ATM --> correct this
-k <- rnorm(simNum, 2.46*10^-3, 2.46*10^-3) # correct, use the median and quartiles to feed a normal
+Csp <- 10^sample(df_Csp$C_sp, size=simNum, replace = TRUE) # Needs correction! Replace 10^0 with 0? Change distribution? Wölfel 2020, Pan 2020, Kim 2020
 
-# Parameters from two distributions 
-#TEhm <- f_TEhm(t)
-TEhm <- rnorm(simNum, 1, 0.5) # provisional value, to be changed by the function
+# Activity specific parameters
 
-# Creating data fram with all the variables and numbers simulated from distributions    
-df <- as.data.frame(cbind(Vs, Ncough_min, Csp, TEsh_stl, t_0.5_stl, TEhm, FSAsf))
+#                           ---- ATM------
+
+# The TEsh and inactivation on surface were steel specific, assuming the ATM is made of steel. 
+t_ATM <-  rtruncnorm(simNum, 0, Inf, t_ATM_mean, t_ATM_sd)  # Time at ATM, 20 hours of observational studies
+t_btw_ATM <- rtruncnorm(simNum, 0, Inf, 60/visits_mean, 60/visits_sd) # (Change distribution at the end) Time between ATM visits, observational studies
+x <- 0.4 # Inoculation distance (m), assumed based on observations
+k_stl <- rnorm(simNum, k_stl_mean, k_stl_sd) # Half life of CoV-2 in steel
+n_stl <- log(2) / k_stl # Decay rate, function of the halflife of the virus in the surface
+TEsh_stl <- rtruncnorm(simNum, 0, 1, TE_sh_stl_mean, TE_sh_stl_sd) # TE from surface to hand for stainless steel RH=[40-65%]
+
+# Creating data fram with all the variables and numbers simulated from distributions ATM   
+df <- as.data.frame(cbind(GC_TCID50, Vs, Ncough_min, Csp, FSAsf, TEhm, t_ATM, t_btw_ATM, x, n_stl, TEsh_stl))
 
 # Calcuated parameters
 for (i in 1:simNum)
 {
-    df$n[i] <- log(2) / t_0.5_stl [i]
-    df$Cs_0[i] <- df$Csp [i] / cough_ang / x * t_k * Ncough_min [i]
+    df$Cs_0[i] <- df$Csp [i] /  x * t_k * Ncough_min [i]
     df$Cs_1[i] <- df$Cs_0[i] ^ 2
     df$Nf [i] <- df$Cs_1[i] * df$FSAsf [i] * df$TEsh_stl[i]
     df$P_inf[i] <- 1 - exp(- (df$Nf [i]) * k[i])

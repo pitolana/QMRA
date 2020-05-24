@@ -1,37 +1,134 @@
-﻿t_ATM,atm,time,day,date,time_interval,time_period
-83,1,11:58,Wednesday,08.04.20,11:58-12:58,afternoon
-82,1,12:16,Wednesday,08.04.20,11:58-12:58,afternoon
-103,1,12:23,Wednesday,08.04.20,11:58-12:58,afternoon
-63,1,13:23,Thursday,09.04.20,13:18-14:18,afternoon
-96,1,13:55,Thursday,09.04.20,13:18-14:18,afternoon
-98,1,14:00,Thursday,09.04.20,13:18-14:18,afternoon
-37,1,14:02,Thursday,09.04.20,13:18-14:18,afternoon
-32,2,14:59,Saturday,11.04.20,14:55-15:55,afternoon
-36,2,15:01,Saturday,11.04.20,14:55-15:55,afternoon
-32,2,15:02,Saturday,11.04.20,14:55-15:55,afternoon
-37,2,15:03,Saturday,11.04.20,14:55-15:55,afternoon
-21,2,15:06,Saturday,11.04.20,14:55-15:55,afternoon
-62,2,15:08,Saturday,11.04.20,14:55-15:55,afternoon
-87,2,15:16,Saturday,11.04.20,14:55-15:55,afternoon
-50,2,15:19,Saturday,11.04.20,14:55-15:55,afternoon
-52,2,15:28,Saturday,11.04.20,14:55-15:55,afternoon
-41,2,15:29,Saturday,11.04.20,14:55-15:55,afternoon
-44,2,15:38,Saturday,11.04.20,14:55-15:55,afternoon
-129,2,15:49,Saturday,11.04.20,14:55-15:55,afternoon
-68,1,20:01,Sunday,12.04.20,19:30-20:20,evening
-0,2,NA,Tuesday,14.04.20,8:15-9:15,morning
-70,1,16:43,Tuesday,14.04.20,16:40-17:40,evening
-77,1,16:54,Tuesday,14.04.20,16:40-17:40,evening
-28,1,17:02,Tuesday,14.04.20,16:40-17:40,evening
-36,1,17:29,Tuesday,14.04.20,16:40-17:40,evening
-66,1,10:03,Wednesday,15.04.20,9:20-10:20,morning
-23,1,10:16,Wednesday,15.04.20,9:20-10:20,morning
-37,1,10:18,Wednesday,15.04.20,9:20-10:20,morning
-40,1,11:43,Wednesday,15.04.20,11:37-13:07,afternoon
-5,1,12:02,Wednesday,15.04.20,11:37-13:07,afternoon
-54,1,12:24,Wednesday,15.04.20,11:37-13:08,afternoon
-35,1,12:34,Wednesday,15.04.20,11:37-13:09,afternoon
-73,1,12:38,Wednesday,15.04.20,11:37-13:10,afternoon
-44,1,12:42,Wednesday,15.04.20,11:37-13:11,afternoon
-63,1,13:06,Wednesday,15.04.20,11:37-13:12,afternoon
-0,1,NA,Thursday,16.04.20,7:50-8:50,morning
+﻿t_ATM,atm,time,day,date,time_interval,time_period,visits_hr
+83,1,11:58,Wednesday,08.04.20,11:58-12:58,afternoon,3
+82,1,12:16,Wednesday,08.04.20,11:58-12:58,afternoon,
+103,1,12:23,Wednesday,08.04.20,11:58-12:58,afternoon,
+63,1,13:23,Thursday,09.04.20,13:18-14:18,afternoon,4
+96,1,13:55,Thursday,09.04.20,13:18-14:18,afternoon,
+98,1,14:00,Thursday,09.04.20,13:18-14:18,afternoon,
+37,1,14:02,Thursday,09.04.20,13:18-14:18,afternoon,
+32,2,14:59,Saturday,11.04.20,14:55-15:55,afternoon,12
+36,2,15:01,Saturday,11.04.20,14:55-15:55,afternoon,
+32,2,15:02,Saturday,11.04.20,14:55-15:55,afternoon,
+37,2,15:03,Saturday,11.04.20,14:55-15:55,afternoon,
+21,2,15:06,Saturday,11.04.20,14:55-15:55,afternoon,
+62,2,15:08,Saturday,11.04.20,14:55-15:55,afternoon,
+87,2,15:16,Saturday,11.04.20,14:55-15:55,afternoon,
+50,2,15:19,Saturday,11.04.20,14:55-15:55,afternoon,
+52,2,15:28,Saturday,11.04.20,14:55-15:55,afternoon,
+41,2,15:29,Saturday,11.04.20,14:55-15:55,afternoon,
+44,2,15:38,Saturday,11.04.20,14:55-15:55,afternoon,
+129,2,15:49,Saturday,11.04.20,14:55-15:55,afternoon,
+68,1,20:01,Sunday,12.04.20,19:30-20:20,evening,1
+0,2,NA,Tuesday,14.04.20,8:15-9:15,morning,0
+70,1,16:43,Tuesday,14.04.20,16:40-17:40,evening,
+77,1,16:54,Tuesday,14.04.20,16:40-17:40,evening,
+28,1,17:02,Tuesday,14.04.20,16:40-17:40,evening,
+36,1,17:29,Tuesday,14.04.20,16:40-17:40,evening,4
+66,1,10:03,Wednesday,15.04.20,9:20-10:20,morning,
+23,1,10:16,Wednesday,15.04.20,9:20-10:20,morning,
+37,1,10:18,Wednesday,15.04.20,9:20-10:20,morning,3
+40,1,11:43,Wednesday,15.04.20,11:37-13:07,afternoon,
+5,1,12:02,Wednesday,15.04.20,11:37-13:07,afternoon,
+54,1,12:24,Wednesday,15.04.20,11:37-13:07,afternoon,
+35,1,12:34,Wednesday,15.04.20,11:37-13:07,afternoon,
+73,1,12:38,Wednesday,15.04.20,11:37-13:07,afternoon,
+44,1,12:42,Wednesday,15.04.20,11:37-13:07,afternoon,
+63,1,13:06,Wednesday,15.04.20,11:37-13:07,afternoon,5
+0,1,NA,Thursday,16.04.20,7:50-8:50,morning,1
+65,1,18:02,Friday,17.04.20,18:00-19:00,evening,
+51,1,18:10,Friday,17.04.20,18:00-19:00,evening,
+71,1,18:39,Friday,17.04.20,18:00-19:00,evening,
+49,1,18:44,Friday,17.04.20,18:00-19:00,evening,4
+38,2,15:07,Thursday,23.04.20,15:00-16:00,afternoon,
+73,2,15:15,Thursday,23.04.20,15:00-16:00,afternoon,
+34,2,15:25,Thursday,23.04.20,15:00-16:00,afternoon,
+46,2,15:51,Thursday,23.04.20,15:00-16:00,afternoon,
+35,2,15:36,Thursday,23.04.20,15:00-16:00,afternoon,
+64,2,15:37,Thursday,23.04.20,15:00-16:00,afternoon,6
+34,2,14:09,Friday,24.04.20,14:07- 15:07,afternoon,
+38,2,14:13,Friday,24.04.20,14:07- 15:07,afternoon,
+25,2,14:20,Friday,24.04.20,14:07- 15:07,afternoon,
+27,2,14:21,Friday,24.04.20,14:07- 15:07,afternoon,
+21,2,14:33,Friday,24.04.20,14:07- 15:07,afternoon,
+25,2,14:40,Friday,24.04.20,14:07- 15:07,afternoon,
+14,2,14:45,Friday,24.04.20,14:07- 15:07,afternoon,
+7,2,14:48,Friday,24.04.20,14:07- 15:07,afternoon,
+46,2,14:51,Friday,24.04.20,14:07- 15:07,afternoon,
+47,2,14:52,Friday,24.04.20,14:07- 15:07,afternoon,
+37,2,14:53,Friday,24.04.20,14:07- 15:07,afternoon,
+43,2,14:54,Friday,24.04.20,14:07- 15:07,afternoon,
+74,2,14:54,Friday,24.04.20,14:07- 15:07,afternoon,
+28,2,14:56,Friday,24.04.20,14:07- 15:07,afternoon,
+59,2,14:57,Friday,24.04.20,14:07- 15:07,afternoon,15
+26,2,14:32,Saturday,25.04.20,14:30- 15:30,afternoon,
+28,2,14:32,Saturday,25.04.20,14:30- 15:30,afternoon,
+29,2,14:38,Saturday,25.04.20,14:30- 15:30,afternoon,
+43,2,14:41,Saturday,25.04.20,14:30- 15:30,afternoon,
+23,2,14:43,Saturday,25.04.20,14:30- 15:30,afternoon,
+43,2,14:44,Saturday,25.04.20,14:30- 15:30,afternoon,
+34,2,14:50,Saturday,25.04.20,14:30- 15:30,afternoon,
+31,2,14:58,Saturday,25.04.20,14:30- 15:30,afternoon,
+24,2,15:01,Saturday,25.04.20,14:30- 15:30,afternoon,
+41,2,15:01,Saturday,25.04.20,14:30- 15:30,afternoon,
+78,2,15:08,Saturday,25.04.20,14:30- 15:30,afternoon,
+55,2,15:10,Saturday,25.04.20,14:30- 15:30,afternoon,
+50,2,15:12,Saturday,25.04.20,14:30- 15:30,afternoon,
+42,2,15:13,Saturday,25.04.20,14:30- 15:30,afternoon,
+45,2,15:15,Saturday,25.04.20,14:30- 15:30,afternoon,
+19,2,15:26,Saturday,25.04.20,14:30- 15:30,afternoon,
+34,2,15:28,Saturday,25.04.20,14:30- 15:30,afternoon,17
+30,2,16:14,Tuesday,04.05.20,16:10-17:10,evening,
+36,2,16:15,Tuesday,04.05.20,16:10-17:10,evening,
+29,2,16:17,Tuesday,04.05.20,16:10-17:10,evening,
+36,2,16:18,Tuesday,04.05.20,16:10-17:10,evening,
+26,2,16:19,Tuesday,04.05.20,16:10-17:10,evening,
+43,2,16:20,Tuesday,04.05.20,16:10-17:10,evening,
+55,2,16:22,Tuesday,04.05.20,16:10-17:10,evening,
+87,2,16:27,Tuesday,04.05.20,16:10-17:10,evening,
+41,2,16:32,Tuesday,04.05.20,16:10-17:10,evening,
+26,2,16:32,Tuesday,04.05.20,16:10-17:10,evening,
+41,2,16:33,Tuesday,04.05.20,16:10-17:10,evening,
+36,2,16:34,Tuesday,04.05.20,16:10-17:10,evening,
+58,2,16:35,Tuesday,04.05.20,16:10-17:10,evening,
+133,2,16:40,Tuesday,04.05.20,16:10-17:10,evening,
+56,2,16:45,Tuesday,04.05.20,16:10-17:10,evening,
+20,2,16:46,Tuesday,04.05.20,16:10-17:10,evening,
+31,2,16:47,Tuesday,04.05.20,16:10-17:10,evening,
+44,2,16:51,Tuesday,04.05.20,16:10-17:10,evening,
+53,2,16:54,Tuesday,04.05.20,16:10-17:10,evening,
+56,2,16:55,Tuesday,04.05.20,16:10-17:10,evening,
+54,2,16:57,Tuesday,04.05.20,16:10-17:10,evening,
+19,2,17:05,Tuesday,04.05.20,16:10-17:10,evening,
+58,2,17:06,Tuesday,04.05.20,16:10-17:10,evening,
+57,2,17:08,Tuesday,04.05.20,16:10-17:10,evening,
+56,2,17:09,Tuesday,04.05.20,16:10-17:10,evening,25
+54,2,13:05,Tuesday,19.05.20,13:00-14:00,afternoon,
+45,2,13:07,Tuesday,19.05.20,13:00-14:00,afternoon,
+36,2,13:17,Tuesday,19.05.20,13:00-14:00,afternoon,
+14,2,13:20,Tuesday,19.05.20,13:00-14:00,afternoon,
+19,2,13:21,Tuesday,19.05.20,13:00-14:00,afternoon,
+56,2,13:25,Tuesday,19.05.20,13:00-14:00,afternoon,
+31,2,13:28,Tuesday,19.05.20,13:00-14:00,afternoon,
+25,2,13:30,Tuesday,19.05.20,13:00-14:00,afternoon,
+27,2,13:42,Tuesday,19.05.20,13:00-14:00,afternoon,
+42,2,13:45,Tuesday,19.05.20,13:00-14:00,afternoon,
+65,2,13:47,Tuesday,19.05.20,13:00-14:00,afternoon,
+40,2,13:48,Tuesday,19.05.20,13:00-14:00,afternoon,
+56,2,13:49,Tuesday,19.05.20,13:00-14:00,afternoon,
+37,2,13:50,Tuesday,19.05.20,13:00-14:00,afternoon,
+66,2,13:55,Tuesday,19.05.20,13:00-14:00,afternoon,15
+52,2,17:08,Wednesday,20.05.20,17:00-18:00,evening,
+58,2,17:10,Wednesday,20.05.20,17:00-18:00,evening,
+51,2,17:13,Wednesday,20.05.20,17:00-18:00,evening,
+47,2,17:22,Wednesday,20.05.20,17:00-18:00,evening,
+27,2,17:23,Wednesday,20.05.20,17:00-18:00,evening,
+35,2,17:25,Wednesday,20.05.20,17:00-18:00,evening,
+25,2,17:34,Wednesday,20.05.20,17:00-18:00,evening,
+62,2,17:35,Wednesday,20.05.20,17:00-18:00,evening,
+48,2,17:37,Wednesday,20.05.20,17:00-18:00,evening,
+34,2,17:38,Wednesday,20.05.20,17:00-18:00,evening,
+83,2,17:38,Wednesday,20.05.20,17:00-18:00,evening,
+31,2,17:45,Wednesday,20.05.20,17:00-18:00,evening,
+33,2,17:46,Wednesday,20.05.20,17:00-18:00,evening,
+30,2,17:50,Wednesday,20.05.20,17:00-18:00,evening,
+32,2,17:54,Wednesday,20.05.20,17:00-18:00,evening,15

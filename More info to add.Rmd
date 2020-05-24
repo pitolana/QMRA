@@ -1,0 +1,94 @@
+---
+title: "More info to add"
+author: "Ana Karina"
+date: "5/4/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## More info for the paper
+
+#### More info that could be added
+
+GC:Infectivity
+@Yan2018 significant correlation between virus RNA copies and infectious virus recovered from breathe and swabs of influenza patients,
+
+
+WHO recomends:
+washing hands often with soap and water
+cleaning frequently touched surfaces and objects. 
+
+Data on the number of CoV-2 viruses emitted while coughing, speaking, breathing, or sneasing need to be better understaood. 
+
+"the main mode of transmission is through close exposure to an infected person who coughs or exhales droplets in your presence." NY times
+
+“The good news is that the novel coronavirus comes from a family that can't take the heat. Coronaviruses in general are enveloped in a coat of fat and protein that tends to lose its shape at high temperatures, a process likened to melting that effectively disables the virus. They also tend to survive longest in conditions of low humidity."
+
+"quantitative measurement of infectious respiratory viruses in the air are needed to evaluate the infectiousness of respiratory viruses over the aerosol route"
+
+"Droplets smaller than 10 μm can remain suspended for many minutes"
+
+
+unmasked and are coughing, talking or just came in from a jog and are breathing heavily.
+
+Find a table of Inactivation of coronaviruses by different types of biocidal agents in carrier tests in article --> @Kampf2020
+
+modeling-based approaches have a potential role to play in reducing the impact of the ongoing COVID-19 outbreak, and QMRA parameters obtained from previous studies on relevant respiratory viruses help to inform risk assessments of SARS-CoV-2. 
+
+
+@WHO2020b
+"Recommendation to Member States to improve hand hygiene practices widely to help prevent the transmission of the COVID-19 virus by:
+1. Providing universal access to public hand hygiene stations and making their use obligatory on entering and leaving any public or private commercial building and any public transport facility.
+2. Improving access to hand hygiene facilities and practices in health care facilities."
+
+
+
+Large droplets (>= 5um) that fall rapidly near the source contaminate proxime surfaces, making indirect human-surface transmission. 
+
+Fecal-oral route has been suggested as a potential transmission route for SARS-CoV-2 @Yeo2020.
+“Toilet bowl and sink samples were positive, suggesting that viral shedding in stool” @Ong2020.
+
+"“aerosol and fomite transmission of SARS-CoV-2 is plausible, since the virus can remain viable and infectious in aerosols for hours and on surfaces up to days (depending on the inoculum shed).” @VanDoremalen2020
+
+Part of the WHO COVID-19 strategy is to "engaging and educating the public to ensure protective measures are implemented effectively as changes are made to existing policies and restrictions." @WHO2020a
+
+He et al. analized the patterns of viral sheddin of 94 COVID-19 patients. They also suggested substantial presymptomatic transmission @He2020. "we have estimated that viral shedding of patients
+with laboratory-confirmed COVID-19 peaked on or before symptom onset, and a substantial proportion of transmission probably occurred before first symptoms in the index case. More inclusive criteria for contact tracing to capture potential transmission events 2 to 3 days before symptom onset should be urgently considered for effective control of the outbreak"
+
+Matrices: saliva, mucus, nasal secretions, lower respiratory tack secretions, urine, blood. 
+
+Air samples negative, but surface samples positive @Ong2020.
+
+Medical students touch their faces 23 times per hour, 44% of those contacts were with a mucous membrane @Kwok2015. 
+__________
+
+Ratio.
+For flu virus, "There is a weak, but significant, correlation between virus RNA copies and infectious virus." As shown by Yan et al. RNA copies and infectious flu virus recovered of symptomatic influenza patients. Infectious virus and RNA copies (r = 0.34 and 0.58, spearman correlation for breath samples and swab samples). Ratio estimated using Figure 2.C. (swab samples, r=0.58). It looks like at least a 1:1000 correlation, if not higher. @Yan2018
+
+Effectiveness of hand-washing
+A systematic review of 67 studies conducted to assess the effectiveness of differnet physical interventions to interrupt or reduce the spread of acute respiratory viruses showed that hygienic measures such as handwashing can reduce the spread of respiratory virus @Jefferson2011.
+
+___________
+
+
+"The literature suggests the volume of saliva expelled per cough or sneeze could be different
+(Duguid, 1946; Loudon & Roberts, 1966; Nicas & Jones, 2009; Papineni & Rosenthal, 1997). If a
+mean volume (VSaliva) for coughs was calculated by multiplying the average droplet diameter, by
+the average number of droplets expelled per cough with respect to the droplet size distribution, a
+total saliva volume expelled per cough of 0.0065 ml would result. However, a higher mean volume
+of saliva expelled per cough was reported to be 0.044 ml (Nicas & Jones, 2009) so, the later larger
+volume for coughs was used to produce the most conservative estimates. For the volume of saliva
+expelled during a sneeze, a volume of 0.44 ml was used. This value was also previously used in
+the Nicas and Jones model (Nicas & Jones, 2009). The combination of three exposure times and
+two volumes of saliva expelled for coughing or sneezing events led to six different simulations.
+The six possible scenarios evaluated can be described as below:
+ (1) and (2): An instantaneous exposure with one cough or one sneeze, corresponding to an
+expelled volume of 0.044 or 0.44 ml (Nicas & Jones, 2009), followed by a direct surface and face
+touch (base scenario);
+ (3) and (4): A 15 min exposure duration resulting in 3 coughs of 0.044 ml each or 3 sneezes of
+0.44 ml each, 15 surface touches and 3.75 face touches;
+ (5) and (6): A 30 min exposure period with 6 coughs of 0.044 mL each or 6 sneezes of 0.44 ml
+each, 30 surface touches and 3.75 face touches; "
