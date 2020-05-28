@@ -14,24 +14,31 @@ require(tidyverse)
 # Risk of infection from touching surfaces contaminated with SARS-CoV-2
 ## Abstract
 ## Introduction
+close contact route (large droplet), airborne (small droplets), fomites.
+An investigation of a nosocomial outbreak of COVID-19 reported at Augustine’s Hospital in Durban, South Africa suggest that indirect contact through health care workers and fomites were the predominant transmission pathways @Lessells2020.
+
+*Risk assessment models*
+Mathematical models have been used to understand SARS-CoV and MERS-CoV @Adhikari2019 @Lei2017.
+Let et al @Lei2017  developed a model to understand the relative contribution of different transmission routes (airborne, close contact, and fomites) on the risk of infection for influenza A H1N1, SARS-CoV, and norovirus. The simulation results suggest that around 50% of the CoV infections were due to indirect (fomite mediated) transmission. 
+A QMRA of MERS-CoV was developed by Adhikari et all @Adhikari2019 to evaluate the risk for hospital transmission of coronavirus. They only considered the risk of infection due from droplets and aerosolized particles, since that is the main transmission route. Most of the uncertainty associated with the model was due to the concentration of virus in the saliva. The researchers evaluated possible interventions and showed that the use of mask contributed significantly to the reduction of the risk (>90%), as well as increasing air exchange (up to 58% risk reduction).
 
 extensive environmental contamination has been found in settings with COVID-19 patients @Ong2020 @Ye2020, coronaviruses persist on inanimate surface for extended periods of time @Kampf2020
 
-If no contrameasures are taken, viruses can spread thorugh the space populated by the human host at a high speed, as we have observed @BarOn2020.
+If no countermeasures are taken, viruses can spread through the space populated by the human host at a high speed, as we have observed @BarOn2020.
 
 Surfaces play a significant role in the spread of respiratory viral diseases @Boone2007
 
 Potential role of aerosol transmission of SARS-CoV-2, sampling the air @Liu2020
 
-The CDC and WHO have highligthed two main transmission routes: direct transmission or person-to-person transmission (respiratory droplets produced while talking, caughin, or sneezing), and indirect transmission or surface mediated transmission (touching a contaminated surface followed by touching mucose membrains in the face such as mouth or nose) @WHO2020 @CDC2020. 
+The CDC and WHO have highlighted two main transmission routes: direct transmission or person-to-person transmission (respiratory droplets produced while talking, coughing, or sneezing), and indirect transmission or surface-mediated transmission (touching a contaminated surface followed by touching mucose membranes in the face such as mouth or nose) @WHO2020 @CDC2020. 
 
-SARS-CoV-1 transmission has been associated with nosocomial spread. Transmission data suggests that, although indirect transmission through fomite mediated contacts is not the primary transmission route, it can lead to infection @Chen2004. A study of an outbreak of SARS CoV in Tawian showed that, out of the 232 SARS patients in the hospital, 31 patients (13 %)  were hospital acquired transmissions. Out of the 31 cases, most of the transmission occurred by direct contact with a known SARS patient, but 6/31 (~20%) of the transmissions could not be traced to direct contact with SARS patients. Sampling of surfaces for the RNA of coronavirus showed that surfaces such as drinking water buttons, beds and chairs were contaminated with coronavirus. Thus, the researchers postulated that indirect contact could have been the source of transmission @Chen2004.
+Although indirect transmission through fomite mediated contacts is not the primary transmission route, it can lead to infection @Chen2004. A study of an outbreak of SARS CoV in Taiwan showed that, out of the 232 SARS-CoV patients in the hospital, 31 patients (13 %)  were hospital-acquired transmissions. Out of the 31 cases, most of the transmission occurred by direct contact with a known SARS patient, but 6/31 (~20%) of the transmissions could not be traced to direct contact with SARS patients. Sampling of surfaces for the RNA of coronavirus showed that surfaces such as drinking water buttons, beds and chairs were contaminated with coronavirus. Thus, the researchers postulated that indirect contact could have been the source of transmission @Chen2004.
 
-Viruses are known to transfer from contaminated surfaces to the skin upon contact @Julian2010 @Lopez2013 @Bidawid2004 @Rusin2002 @Ansari1991 and from the skin to the mouth and saliva of individuals @Pitol2017 @Rusin2002. People touch their faces frequently (REF). Therefore, touching contaminated surfaces offers a risk for exposure. Inspite its importance, there is not a lot of information regarding the magnitud of risk associeted with touching contaminated surfaces @BarOn2020.
+Viruses are known to transfer from contaminated surfaces to the skin upon contact @Julian2010 @Lopez2013 @Bidawid2004 @Rusin2002 @Ansari1991 and from the skin to the mouth and saliva of individuals @Pitol2017 @Rusin2002. People touch their faces frequently @Nicas2008. Therefore, touching contaminated surfaces offers a risk of exposure. Despite its importance, there is not a lot of information regarding the magnitude of risk associated with touching contaminated surfaces @BarOn2020.
 
-Hand hygiene interventions and surface desinfection have been hihgligthed as one of the primary strategies to control transmission @Mcclellan2020. Studies with coronaviruses have shown than hygiene practices such as handwashing can reduce the risk of coronavirus infection @Beale2020. But there is not conclusive evidence of the effectiveness of hand-washing to reduce SARS-CoV-2 transmission @Yang2020.
+Hand hygiene interventions and surface disinfection have been highlighted as one of the primary strategies to control transmission @Mcclellan2020. Studies with coronaviruses have shown than hygiene practices such as handwashing can reduce the risk of coronavirus infection @Beale2020. But there is no conclusive evidence of the effectiveness of hand-washing to reduce SARS-CoV-2 transmission @Yang2020.
 
-A QMRA of MERS-CoV was developed by Adhikari et all @Adhikari2019 to evaluate the risk for hospital transmission of coronavirus. They only considered the risk of infection due from droplets and aer(osolized particles, since that is the main transmission route. Most of the uncertainty associated with the model was due to the concentration of virus in the saliva. The researchers evaluated possible interventions and showed that the use of mask contributed significantly to the reduction of the risk (>90%), as well as increasing air exchange (up to 58% risk reduction).
+
 
 ## Materials and Methods 
 ### Hazard Identification
@@ -50,7 +57,7 @@ ATM machines.
 #### Parameters table
 | Parameter | Units | Description | Input values / Equation | Distribution | Reference and comments |  
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| C~sp~ | Gene Copies/ml | Concentration of SARS-CoV-2 in sputum or saliva | log~10~ [4,4.8...] | ReSample | @Wolfel2020 @Pan2020 @Kim2020, RT-PCR data from 9, 2, and 2 patients with COVID-19|
+| C~sp~ | Gene Copies/ml | Concentration of SARS-CoV-2 in sputum or saliva | log~10~ [4,4.8...] | ReSample | @Wolfel2020 @Pan2020 @Kim2020 @To2020, RT-PCR data from 9, 2, 2, and 23 patients with COVID-19|
 | GC:TCID~50~ | - | Genome copies to infectious virus conversion factor | 10^2^-10^3^ | Uniform | @Ip2016, mean RT-PCR to TCID~50~ ratio of 708, 547, and 185 gene copies per TCID~50~ for seasonal A(H1N1), A(H3N2), and influenza B, respectively |
 | V~slv/cgh~ | mL | Volume of saliva expelled per cough | |  | |
 | N~cgh/min~ |min^-1^ | Number of caughs per minute  | 0.57(1)| Normal |@Leung2020, based on data of 17 individuals with seasonal CoV| 
@@ -62,12 +69,21 @@ ATM machines.
 
 
 #### SARS-CoV-2 Concentration in saliva samples
+There is a lack of data regarding the viral loads of infectious viruses in the saliva of infected individuals. Therefore, we translated the available concentration data, obtained using quantitative reverse-transcription polymerase chain reaction (RT-qPCR), which gives a measure of the number of copies present a viral RNA sample to infectious virus data. We used data on the viral loads of the saliva or sputum of an infected person within the first 14 days of symptom onset @Wolfel2020 @Pan2020 @Kim2020 @To2020.
 
-There is a lack of data regarding the viral loads of infectious viruses in the saliva of infected individuals. Therefore, we translated the available concentration data, obtained using quantitative reverse-transcription polymerase chain reaction (RT-qPCR), which gives a measure of the number of copies present a viral RNA sample to infectious virus data. Althoug not ideal, this is an approach often used in risk assessment models, given the complexity of obtaining infectivity data of a number of viral  pathogens (REF). 
-To do this we ...
-In the absence of GC:PFU data on SARS-CoV-2, we used the relationship reported for Pandemic influenza virus H1N1, as both are enveloped, RNA viruses with similar sizes. 
+Althoug translating copy numbers into infectivity data is not ideal, this is an approach often used in risk assessment models, given the complexity of obtaining infectivity data of a number of viral  pathogens (REF). 
+
+In the absence of GC:PFU data on SARS-CoV-2, we used the relationship reported for seasonal A(H1N1), influenza A(H3N2), and influenza B @Ip2016. Both, influenza viruses and coronaviruses are enveloped, RNA viruses with similar sizes. 
+
+*Conversion factor RT-PCR data to infectivity*
+Although the ratio of infectivity to gene copy numbers is, to our knowledge, available for coronavirus, there is information of this ratio for the samples taken from patients for other respiratory viruses such as different strains of influenza virus @Yan2018 @Ip2016.
+
+GC:Infectivity
+@Yan2018 significant correlation between virus RNA copies and infectious virus recovered from breathe and swabs of influenza patients,
 
 #### SARS-CoV-2 Concentration in surfaces
+
+"viru transferred between two surfaces is often formulated as the product of contact frequency, transfer efficiency, surface concentration, and contact area"
 
 \begin{equation}
 C(0)=\frac {V_{slv/cgh} C_{sp}}{4 \pi x_{i}^{2}  0.2}
@@ -79,6 +95,8 @@ C(t)= C(0)  e^{-nt}
 \end{equation}
 
 #### Dose Response for SARS-CoV
+
+To "To estimate the infection risk based on the dose received,"
 “For translating this animal dose–response relationship to a human dose– response relationship, a generally accepted assumption that a death end point for an animal model may be used for examining the human risk of infection was applied (Haas, Rose, & Gerba, 2014)”
 
 The dose-response relationship was obtain from QMRA wiki <http://qmrawiki.org/experiments/sars>. The model is based on animal dose-response relationship. No human dose-response relationship is available for SARS Coronavirus. It is generally accepted to use animal models in QMRA if human data is not available @Haas2014, @Haas2015.
@@ -131,6 +149,11 @@ Even though this risk assessment model relies on many assumptions, some with hig
 
 
 Currently we have liminted data on the relationship between copy numbers and infectivity, which limits the extend to which the risk assessment can be used. However, modeling approaches such as the QMRA can help elucidate the contribution of different exposure routes to the disease transmission and therefore help the development of guidelines. 
+
+_____
+about the paper, we can say something like "Although the relative importance of each transmission route remains poorly understood, there has been a growing consensus that contaminated fomites play a critical role in the spread of viruses." @Boone2007
+
+The relative contribution of surface-mediated transmission as compared with other transmission routes such as direct transmission, air, or thorugh the feca-oral route remains to be addressed. QMRA can be used to incorporate different transmission routes and answer this question.
 
 
 ## Supporting Information

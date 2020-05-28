@@ -13,9 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #### More info that could be added
 
-GC:Infectivity
-@Yan2018 significant correlation between virus RNA copies and infectious virus recovered from breathe and swabs of influenza patients,
-
+The subjects touched their eyes, nostrils, and lops an average of 16(11) times an hour @Nicas2008
 
 WHO recomends:
 washing hands often with soap and water
@@ -70,6 +68,10 @@ For flu virus, "There is a weak, but significant, correlation between virus RNA 
 
 Effectiveness of hand-washing
 A systematic review of 67 studies conducted to assess the effectiveness of differnet physical interventions to interrupt or reduce the spread of acute respiratory viruses showed that hygienic measures such as handwashing can reduce the spread of respiratory virus @Jefferson2011.
+
+__________
+
+Often, parameters such as virus transfer are not available for the virus in question, therefore surrogates are used 
 
 ___________
 

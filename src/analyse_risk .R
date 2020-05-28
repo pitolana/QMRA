@@ -36,6 +36,7 @@ k_stl <- rtruncnorm(simNum, 0, Inf, k_stl_mean, k_stl_sd) # Half life of CoV-2 i
 n_stl <- log(2) / k_stl # Decay rate, function of the halflife of the virus in the surface
 TEsh_stl <- rtruncnorm(simNum, 0, 1, TE_sh_stl_mean, TE_sh_stl_sd) # TE from surface to hand for stainless steel RH=[40-65%]
 k <- rnorm(simNum, k_mean, k_sd)
+angle <- 0.5 #fix, based in the images of @2Bourouiba2014
 
 # Creating data fram with all the variables and numbers simulated from distributions ATM   
 df <- as.data.frame(cbind(GC_TCID50, Vs, Ncough_min, Csp, FSAsf, FSAfm, TEhm, t_ATM, t_btw_ATM, x, n_stl, TEsh_stl))
