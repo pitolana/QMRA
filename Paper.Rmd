@@ -59,13 +59,18 @@ ATM machines.
 |:--:|:--:|:--:|:--:|:--:|:--:|
 | C~sp~ | Gene Copies/ml | Concentration of SARS-CoV-2 in sputum or saliva | log~10~ [4,4.8...] | ReSample | @Wolfel2020 @Pan2020 @Kim2020 @To2020, RT-PCR data from 9, 2, 2, and 23 patients with COVID-19|
 | GC:TCID~50~ | - | Genome copies to infectious virus conversion factor | 10^2^-10^3^ | Uniform | @Ip2016, mean RT-PCR to TCID~50~ ratio of 708, 547, and 185 gene copies per TCID~50~ for seasonal A(H1N1), A(H3N2), and influenza B, respectively |
-| V~slv/cgh~ | mL | Volume of saliva expelled per cough | |  | |
+| V~slv/cgh~ | mL | Volume of saliva expelled per cough | 0.0484-0.0396 | uniform | @Nicas2009, volume = 0.044, @Adhikari2019, assumed uniform $\pm$ 10%|
 | N~cgh/min~ |min^-1^ | Number of caughs per minute  | 0.57(1)| Normal |@Leung2020, based on data of 17 individuals with seasonal CoV| 
-|t~i~ | min |Time spend doing the activity *i* | [...] | Normal | This study. Activity ATM: 20 hours of observational data |
-|x~i~| m | Inoculation distance for activity *i* | [...] | Point values | Assumed |
-| k | PFU^-1^ | Parameter of the exponential dose-response| 0.00246(0.00098) | Normal | http://qmrawiki.org/experiments/sars |
-| n | min~-1~ |Decay rate for surface *j*| [...] | Normal | @VanDoremalen2020, CoV-2 infectivity assays, 40% RH and 21-23°C |
-| |  ||  | | |
+|t~ATM~ | min |Time spend doing the activity *i* | [...] | Normal | This study. Activity ATM: 20 hours of observational data |
+|x~ATM~| m | Inoculation distance for activity *i* | [...] | Point value |  This study. Estimated based on activity ATM: 20 hours of observational data |
+| k | PFU^-1^ | Parameter of the exponential dose-response| 0.00246, 0.00135, 0.00459 | Triangular | Data obtained from QMRA wiki http://qmrawiki.org/experiments/sars, based on 2 studies @DeAlbuquerque2006, @DeDiego2008, using the from 5th, 50th, and 95th percentiles as min, mode, and max |
+| n~stl~ | min^-1^ |Decay rate in steel | [...] | Normal | @VanDoremalen2020, SARS-CoV-2 infectivity assays, 40% RH and 21-23°C |
+| n~pl~ | min^-1^ |Decay rate in plastic | [...] | Normal | @VanDoremalen2020, SARS-CoV-2 infectivity assays, 40% RH and 21-23°C |
+| TE~sh_stl~ | % | Transfer efficiency from surface (steel) to hand | Normal | 37.4 (16) | @Lopez2013, transfer efficiency of viruses (MS2) from surfaces to skin at 40-65% humidity | 
+| TE~sh_pl~ | % | Transfer efficiency from surface (plastic) to hand | Normal | 79.5 (21.2) | @Lopez2013, transfer efficiency of viruses (MS2) from acrylic to skin at 40-65% humidity | 
+| TE~hm~ | - | Transfer efficiency from hand to mucouse membrane | Normal | 0.201(0.063) | @Pitol2017, transfer efficiency of viruses (MS2) from hand to saliva | 
+| A~sf~ | cm^2^ | Finger surface area |Uniform | 3.8-6.6 | Data from @Chabrelie2018 @ @Peters2009a @Sahmel2015 | 
+| FSA~fm~ | - | Fractional surface area | Uniform | 0.5-0.8 | Assumed | 
 
 
 #### SARS-CoV-2 Concentration in saliva samples
@@ -154,6 +159,13 @@ _____
 about the paper, we can say something like "Although the relative importance of each transmission route remains poorly understood, there has been a growing consensus that contaminated fomites play a critical role in the spread of viruses." @Boone2007
 
 The relative contribution of surface-mediated transmission as compared with other transmission routes such as direct transmission, air, or thorugh the feca-oral route remains to be addressed. QMRA can be used to incorporate different transmission routes and answer this question.
+
+
+
+Although not perfect, a risk assessment framework could be use to conduct a hazzard assessment. Since offices will need to re-open 
+https://www.osha.gov/shpguidelines/hazard-Identification.html.
+
+A more comprehensive model such as the models described elsewhere (REF), could potentially help elucidating the relative contribution of different expossure routes, and inform the population regading the most sensitive measures they could take given the particularities of the situation (e.g., air conditionated in offices)
 
 
 ## Supporting Information

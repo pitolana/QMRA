@@ -26,8 +26,6 @@ TE_hm_w <- mean(df_TE_hm$pt_wet)/100  # mean TEhm when inoculum is wet
 sd_TE_hm_w <- sd(df_TE_hm$pt_wet)/100  # sd TEhm when inoculum is wet
 
 # Creating a function to estimate the TEhm as a function of time after inoculation (t)
-# Function normal with limits
-
 
 # output -------------------------------------------------------------------
 

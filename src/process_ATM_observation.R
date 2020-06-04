@@ -1,4 +1,6 @@
 # Processing data obtained from the ATM observation study
+        # 20 hours of observation divided in morning, afternoon and evening 
+        # 2 different ATMs
 
 # read and process data  --------------------------------------------------
 infile = "data/raw/ATM_observation.csv"
@@ -8,15 +10,15 @@ infile = "data/raw/ATM_observation.csv"
 library(MASS) 
 
 # read data 
-df_ATM <- read.csv (file=infile, header = TRUE, sep=",") # C_sp is viral load in log10 copies/ml
+df_ATM <- read.csv (file=infile, header = TRUE, sep=",") 
+
+# Time spent in the ATM (normally distributed)
 t_ATM_mean <- mean(df_ATM$t_ATM)
 t_ATM_sd <-  sd(df_ATM$t_ATM)    
 
-# ATM visits per hour
+# Number of ATM visits per hour (not normally distributed, Re-Sample)
 visits <- df_ATM$visits_hr
 visits <- visits[!is.na(visits)]
-visits_mean <- mean(visits) # Change the distribution once I have all data
-visits_sd <- sd(visits)
 
 # output -------------------------------------------------------------------
 

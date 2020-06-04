@@ -27,16 +27,19 @@ FSAfm <- runif(simNum, 0.5, 0.8) # Assumed
 ##- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # Activity specific parameters
 
+#---------------------------------------------------------------------------------------------------
+#----------------------------- Cough on hand -------------------------------------------------------
+
 #                           ---- ATM------   Material : steel
 
 # The TEsh and inactivation on surface were steel specific.
 t_ATM <-  rtruncnorm(simNum, 0, Inf, t_ATM_mean, t_ATM_sd)  # Time at ATM, 20 hours of observational studies
 t_btw_ATM <- rtruncnorm(simNum, 0, Inf, 60/visits_mean, 60/visits_sd) # Time between ATM visits, observational studies
-x <- 40 # Inoculation distance (cm), assumed based on observations
+x <- 5 # Inoculation distance (cm), mouth to hand
 k_stl <- rtruncnorm(simNum, 0, Inf, k_stl_mean, k_stl_sd) # Half life of CoV-2 in steel
 n_stl <- log(2) / k_stl # Decay rate, function of the halflife of the virus in the surface
 TEsh_stl <- rtruncnorm(simNum, 0, 1, TE_sh_stl_mean, TE_sh_stl_sd) # TE from surface to hand for stainless steel RH=[40-65%]
-angle <- 0.1 #fix, based in the images of @2Bourouiba2014
+angle <- 0.9 # assumed
 
 # Creating data fram with all the variables and numbers simulated from distributions ATM   
 df_risk_ATM <- as.data.frame(cbind(GC_TCID50, Vs, Ncough_min, Csp, Asf, FSAfm, TEhm, t_ATM, t_btw_ATM, n_stl, TEsh_stl))
@@ -44,7 +47,8 @@ df_risk_ATM <- as.data.frame(cbind(GC_TCID50, Vs, Ncough_min, Csp, Asf, FSAfm, T
 # Calcuated parameters
 for (i in 1:simNum)
 {
-    df_risk_ATM$Cs_0[i]  <- ((((df_risk_ATM$Csp [i]/df_risk_ATM$GC_TCID50[i])) * df_risk_ATM$Vs[i])) / ((4 *pi* x^2)/angle) #correct with 10% of the area of sphere 
+    df_risk_ATM$Ch_0[i]  <- ((((df_risk_ATM$Csp [i]/df_risk_ATM$GC_TCID50[i])) * df_risk_ATM$Vs[i])) / ((4 *pi* x^2)/angle)
+    df_risk_ATM$Cs_0[i]  <- 
     df_risk_ATM$Cs_1[i]  <- df_risk_ATM$Cs_0[i] * exp(- df_risk_ATM$n_stl[i] * df_risk_ATM$t_btw_ATM[i])
     df_risk_ATM$Nf[i]    <- df_risk_ATM$Cs_1[i] * df_risk_ATM$Asf [i] * df_risk_ATM$TEsh_stl[i]
     df_risk_ATM$Dose[i]  <- df_risk_ATM$Nf[i] * df_risk_ATM$FSAfm [i] * df_risk_ATM$TEhm [i]
@@ -71,61 +75,5 @@ corRes <- data.frame(type = c("TEhm", "Csp", "Vs", "t_btw_ATM","n", "TEsh", "GC_
 
 ggplot(data = corRes, aes(x = type, y = rho)) + geom_bar(stat = "identity") 
 + theme_minimal() + xlab("") + theme(axis.text.x = element_text(angle = 10))
-
-
-# - - - - - - - - - - -
-
-
-
-##- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-# Activity specific parameters
-
-#                           ---- Tran /light buttins-----   Material : plastic
-
-# The TEsh and inactivation on surface were steel specific.
-t_btw_push <- runif(simNum, .5, 10) # Time between pushing the buttons (assumed)
-x <- 40 # Inoculation distance (cm), assumed
-k_pl <- rtruncnorm(simNum, 0, Inf, k_stl_mean, k_stl_sd) # Half life of CoV-2 in steel
-n_pl <- log(2) / k_stl # Decay rate, function of the halflife of the virus in the surface
-TEsh_pl <- rtruncnorm(simNum, 0, 1, TE_sh_stl_mean, TE_sh_stl_sd) # TE from surface to hand for stainless steel RH=[40-65%]
-angle <- 0.1 #fix, based in the images of @2Bourouiba2014
-
-# Creating data fram with all the variables and numbers simulated from distributions ATM   
-df_risk_plastic <- as.data.frame(cbind(GC_TCID50, Vs, Ncough_min, Csp, FSAsf, FSAfm, TEhm, t_btw_push, x, n_pl, TEsh_pl))
-
-# Calcuated parameters
-for (i in 1:simNum)
-{
-    df_risk_plastic$Cs_0[i] <- ((((df_risk_plastic$Csp [i]/df_risk_plastic$GC_TCID50[i])) * df_risk_plastic$Vs[i])) / ((4 *pi*x^2)/angle) 
-    df_risk_plastic$Cs_1[i] <- df_risk_plastic$Cs_0[i] * exp(- df_risk_plastic$n_pl[i] * df_risk_plastic$t_btw_push[i])
-    df_risk_plastic$Nf[i]   <- df_risk_plastic$Cs_1[i] * df_risk_plastic$Asf [i] * df_risk_plastic$TEsh_pl[i]
-    df_risk_plastic$Dose[i] <- df_risk_plastic$Nf[i] * df_risk_plastic$FSAfm [i] * df_risk_plastic$TEhm [i]
-    df_risk_plastic$P_inf[i] <- 1 - exp(- (df_risk_plastic$Dose [i]) * k[i])
-}
-
-# - - - - - - - - - - - - -
-# Sensitivity analysis 
-# calculate correlation coefficients
-
-c_TEhm <- cor.test(df_risk_plastic$P_inf, df_risk_plastic$TEhm, method = "spearman", exact=F)
-c_Csp <- cor.test(df_risk_plastic$P_inf, df_risk_plastic$Csp, method = "spearman", exact=F)
-c_Vs <- cor.test(df_risk_plastic$P_inf, df_risk_plastic$Vs, method = "spearman", exact=F)   
-c_t_btw_push <- cor.test(df_risk_plastic$P_inf, df_risk_plastic$t_btw_push, method = "spearman", exact=F)  
-c_n <- cor.test(df_risk_plastic$P_inf, df_risk_plastic$n_pl, method = "spearman", exact=F)  
-c_TEsh <- cor.test(df_risk_plastic$P_inf, df_risk_plastic$TEsh_pl, method = "spearman", exact=F)  
-c_GC_inf <- cor.test(df_risk_plastic$P_inf, df_risk_plastic$GC_TCID50, method = "spearman", exact=F)  
-
-
-
-corRes <- data.frame(type = c("TEhm", "Csp", "Vs", "t_btw_push","n", "TEsh", "GC_inf"),
-                     rho = c(c_TEhm$estimate, c_Csp$estimate, c_Vs$estimate, c_t_btw_push$estimate, c_n$estimate, 
-                             c_TEsh$estimate, c_GC_inf$estimate))
-
-ggplot(data = corRes, aes(x = type, y = rho)) + geom_bar(stat = "identity") 
-+ theme_minimal() + xlab("") + theme(axis.text.x = element_text(angle = 10))
-
-
-# - - - - - - - - - - -
-
 
 

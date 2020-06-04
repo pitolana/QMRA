@@ -1,4 +1,4 @@
-﻿subject,day,day_corr,log10 RNA copies/ml,study,sample
+﻿subject,day,day_corr,log10_C,study,sample
 1,4,4,6,Wölfel,sputum
 1,5,5,8.4,Wölfel,sputum
 1,6,6,8.7,Wölfel,sputum

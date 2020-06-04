@@ -73,6 +73,25 @@ __________
 
 Often, parameters such as virus transfer are not available for the virus in question, therefore surrogates are used 
 
+______________
+Regarding the volume of saliva expelled per cough. 
+Papers:
+
+
+@Chabrelie2018 : Table1. Volume of saliva expelled per cough or sneeze (0.044 or 0.44 [mL]). Point value. Taken from multiple sources. 
+
+
+@Nicas2005: "Original article of particle size and volume, but no aparent 0.044 value in there" This is the one that Nicas2009 cites when it comes to past calculation. It also says the following "Duguid reported that a sneeze emits about 200- fold more particles than a cough."
+
+
+@Adhikari2019: 0.044 value plus minus 10%, uniform, citing Nicas 2009.
+
+
+@Nicas2009: "The number and size distri- bution of cough particles adhere to values presented in a previous analysis, and an estimated 0.044 mL of fluid (saliva) is emitted per cough." citing Nicas2005
+
+
+
+
 ___________
 
 
