@@ -16,10 +16,10 @@ simNum = 100 #number of simulations
 
 # Parameters from distributions and datasets commun to all the scenarios
 GC_TCID50 <- runif(simNum, 100, 1000) # (copies/TCID50)Proportion of infective gene copies [GC:TCID50], Ip (2015) 
-Vs <- runif(simNum, 0.0396, 0.0484) # (ml) Volume of saliva per cough, Nicas and Jones (2009)
-Ncough_min <- rtruncnorm(simNum, 0, Inf, 0.57, 1) # (cough/min) Number of coughs per minute, Leung (2020)
+Vs <- runif(simNum, 0.0396, 0.0484) # (mL) Volume of saliva per cough, Nicas and Jones (2009), mean 0.044ml /pm 10%
+#Ncough_min <- rtruncnorm(simNum, 0, Inf, 0.57, 1) # (cough/min) Number of coughs per minute, Leung (2020)
 TEhm <- rtruncnorm(simNum, 0, 1, TE_hm_d, sd_TE_hm_d) # Transfer Efficiency from hand to saliva, Pitol 2017
-k <-  rtri(simNum, min = 0.00135, max = 0.00459 , mode = 0.00246) # Dose-response parameter, taking median as mode, and 2.5, 97.5% CI as min and max
+k <-  rtri(simNum, min = Q_0.5, max = Q_99.5 , mode = Q_50) # Dose-response parameter, taking median as mode, and 2.5, 97.5% CI as min and max
 Csp <- sample(df_Csp$Csp, size=simNum, replace = TRUE) # (copies/ml) Concentration of saliva in the first 2 weeks after symptom onsent 
 Asf <- runif(simNum, Asf_min, Asf_max) # (cm^2) @Chabrelie2018 @Murai1996 @Peters2009a @Sahmel 2015
 FSAfm <- runif(simNum, 0.5, 0.8) # Assumed

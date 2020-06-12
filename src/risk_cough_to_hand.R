@@ -40,6 +40,7 @@ k_stl <- rtruncnorm(simNum, 0, Inf, k_stl_mean, k_stl_sd) # Half life of CoV-2 i
 n_stl <- log(2) / k_stl # Decay rate, function of the halflife of the virus in the surface
 TEsh_stl <- rtruncnorm(simNum, 0, 1, TE_sh_stl_mean, TE_sh_stl_sd) # TE from surface to hand for stainless steel RH=[40-65%]
 angle <- 0.9 # assumed
+TEhs_stl <- rtruncnorm(simNum, 0, 1, TE_hs_stl_mean, TE_hs_stl_sd) # TE from hand to surface for stainless steel RH=[40-65%]
 
 # Creating data fram with all the variables and numbers simulated from distributions ATM   
 df_risk_ATM <- as.data.frame(cbind(GC_TCID50, Vs, Ncough_min, Csp, Asf, FSAfm, TEhm, t_ATM, t_btw_ATM, n_stl, TEsh_stl))
@@ -48,7 +49,7 @@ df_risk_ATM <- as.data.frame(cbind(GC_TCID50, Vs, Ncough_min, Csp, Asf, FSAfm, T
 for (i in 1:simNum)
 {
     df_risk_ATM$Ch_0[i]  <- ((((df_risk_ATM$Csp [i]/df_risk_ATM$GC_TCID50[i])) * df_risk_ATM$Vs[i])) / ((4 *pi* x^2)/angle)
-    df_risk_ATM$Cs_0[i]  <- 
+    df_risk_ATM$Cs_0[i]  <-  
     df_risk_ATM$Cs_1[i]  <- df_risk_ATM$Cs_0[i] * exp(- df_risk_ATM$n_stl[i] * df_risk_ATM$t_btw_ATM[i])
     df_risk_ATM$Nf[i]    <- df_risk_ATM$Cs_1[i] * df_risk_ATM$Asf [i] * df_risk_ATM$TEsh_stl[i]
     df_risk_ATM$Dose[i]  <- df_risk_ATM$Nf[i] * df_risk_ATM$FSAfm [i] * df_risk_ATM$TEhm [i]

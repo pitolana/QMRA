@@ -13,6 +13,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #### More info that could be added
 
+droplets produced by an infected host during coughing 
+
 The subjects touched their eyes, nostrils, and lops an average of 16(11) times an hour @Nicas2008
 
 WHO recomends:

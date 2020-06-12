@@ -19,7 +19,8 @@ t_ATM_sd <-  sd(df_ATM$t_ATM)
 # Number of ATM visits per hour (not normally distributed, Re-Sample)
 visits <- df_ATM$visits_hr
 visits <- visits[!is.na(visits)]
-
+visits_mean <- mean(visits)
+visits_sd <- sd(visits)
 # output -------------------------------------------------------------------
 
 # save file
