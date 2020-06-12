@@ -42,18 +42,18 @@ Relevance of fomites in the context of SARS-CoV-2 (Stanford review) @Castano2020
 
 ## Materials and Methods 
 ### Hazard Identification
-Whenever an infected individual coughs, sneezes or speaks, droplets containing pathogens make their way to the proximal surfaces [@Bourouiba2014]. It has been shown that SARS-CoV-2 can persist on surfaces like plastic, metal, or glass at room temperature for hours to days [@VanDoremalen2020]. Additionally, viruses are known to transfer from surfaces to the hands upon contact [@Julian2010; @Lopez2013; @Bidawid2004; @Rusin2002; @Ansari1991], as well as from hands to the lips and saliva of individuals [@Rusin2002; @Pitol2017]. Given the fact that people frequently touch their faces and the mucous membranes within the face (nose, eyes and mouth) [@Kwok2015; @Nicas2008], we have identified the indirect (surface-mediated) transfer of SARS-CoV-2 as a relevant transmission pathway. This risk assessment is designed to explore the risks of infection associated with the surface-mediated transmission of SARS-CoV-2. 
+Whenever an infected individual coughs, sneezes or speaks, droplets containing pathogens make their way to the proximal surfaces [@Bourouiba2014]. It has been shown that SARS-CoV-2 can persist on surfaces like plastic, metal, or glass at room temperature for hours to days [@VanDoremalen2020]. Additionally, viruses are known to transfer from surfaces to the hands upon contact [@Julian2010; @Lopez2013; @Bidawid2004; @Rusin2002; @Ansari1991], as well as from hands to the lips and saliva of individuals [@Rusin2002; @Pitol2017]. Given the fact that people frequently touch their faces and the mucous membranes within the face (nose, eyes and mouth) [@Kwok2015; @Nicas2008], we have identified the indirect (surface-mediated) transfer of SARS-CoV-2 as a relevant transmission pathway. Therefore, this risk assessment is designed to explore the risks of infection associated with the surface-mediated transmission of SARS-CoV-2. 
 
 ### Exposure Assessment 
 Only one potential exposure pathway was analysed: the indirect transmission of viruses through contaminated surfaces. Two different scenarios where modelled: single touch (frequently touched buttons) and multiple touches (ATM or cash machine). 
 
-*Scenario 1. Single touch buttons.* Frequently touched buttons such as traffic light buttons, train buttons, and elevator buttons are of risk concern due to their frequent use by multiple people. In this scenario, we modelled the risk of touching a contaminated button followed by touching mucous membranes on the face. The material of the button was assumed to be either plastic or steel. The sequence of events leading to the viral inoculation of the susceptible individual was considered to be the following: 1) contamination event (infected person coughing directly on the surface), 2) virus decay on the surface, 3) virus transfer from the surface to the finger, 4) virus transfer from the finger to the mucous membranes in the face (eyes, mouth, nose).
+*Scenario 1. Single touch buttons.* Frequently touched buttons such as traffic light buttons, train buttons, and elevator buttons are of risk concern due to their frequent use by multiple people. In this scenario, we modelled the risk of touching a contaminated button followed by touching mucous membranes on the face. The material of the button was assumed to be either plastic or steel. The sequence of events leading to the viral inoculation of the susceptible individual was considered to be the following: 1) contamination event (infected person coughing directly on the surface), 2) virus decay on the surface, 3) virus transfer from the surface to the finger, 4) virus transfer from the finger to the mucous membranes  of the nose, mouth and eyes.
 
 *Scenario 2. Multiple touches.* ATM/cash machines are another example of surfaces that are frequently visited by individuals and are not frequently cleaned, as they are located in public spaces. For this risk assessment model, the ATM was assumed to be made of steel. The sequence of events leading to virus inoculation was considered to be the following: 1) contamination event (infected person coughing directly on the surface), 2) virus decay on the surface, 3) virus transfer from the surface to the finger and from finger to surface through multiple contacts, 4) virus transfer from the finger to the mucous membranes in the face (eyes, mouth, nose).
 
 
 ####  Concentration and transfer of SARS-CoV-2
-Viral loads in the saliva or sputum of symptomatic COVID-19 patients within the first 14 days of symptom onset were used as model input. The virus titers used in the risk assessment (Table 1) were measured using quantitative reverse-transcription polymerase chain reaction (RT-qPCR)  [@Wolfel2020; @Pan2020; @Kim2020; @To2020]. The RT-qPCR method estimates the number of copies of viral RNA in the clinical samples. Nevertheless, the presence of coronavirus RNA does not imply the presence of infectious viruses. In risk assessments where no data on the concentration of infectious viruses is available, it is commonly accepted to use a gene copies to infectivity ratio to convert the concentration measured in gene copies to the concentration of infective viruses (REF). The gene copy number to infectivity ratio is, to our knowledge, not available for SARS-CoV-2. In the absence of SARS-CoV-2 data, we used the relationship reported for seasonal A(H1N1), influenza A(H3N2), and influenza B @Ip2016 (Table 1). Both, influenza viruses and coronaviruses, are enveloped, RNA viruses with similar sizes. 
+Viral loads in the saliva or sputum of symptomatic COVID-19 patients within the first 14 days of symptom onset were used as model input. The virus titers used in the risk assessment were measured using quantitative reverse-transcription polymerase chain reaction (RT-qPCR)  [@Wolfel2020; @Pan2020; @Kim2020; @To2020]. The RT-qPCR method estimates the number of copies of viral RNA present in the samples. Nevertheless, the presence of coronavirus RNA does not imply the presence of infectious viruses. In risk assessments whenever data on the concentration of infectious viruses is not available, it is commonly accepted to use a gene copies to infectivity ratio to convert the concentration measured in gene copies to the concentration of infective viruses (REF). The gene copy number to infectivity ratio is, to our knowledge, not available for SARS-CoV-2. In the absence of SARS-CoV-2 data, we used the relationship reported for seasonal A(H1N1), influenza A(H3N2), and influenza B @Ip2016 (Table 1). Both, influenza viruses and coronaviruses, are enveloped, RNA viruses with similar sizes. 
 
 The concentration of viruses in the surface after inoculation (through cough) was estimated using the following equation: 
 
@@ -61,19 +61,19 @@ The concentration of viruses in the surface after inoculation (through cough) wa
 C(0)=\frac { C_{sp}V_{s}}{\frac {4 \pi x_{i}^{2}}{a}}
 \end{equation}
 
-where $C(0)$ [virus/cm^2^] is the concentration of virus in the surface, $V_{s}$ [mL/cough] is the volume of saliva expelled per cough, $C_{sp}$ [virus/mL] is the concentration of infective viruses in the saliva or sputum, $x_i$[cm] is the inoculation distance or the distance between the surface and the infected individual at the time of the cough for activity $i$, and $a$ is the XXX. This equation assumes that the droplets are expelled in a conical shape and a proportion of the spheric part of the cone is in contact with the surface. After surface inoculation, the concentration of the virus on the surface at time = $t$ was estimated using the following equation:
+where $C(0)$ [virus/cm^2^] is the concentration of virus in the surface, $V_{s}$ [mL/cough] is the volume of saliva expelled per cough, $C_{sp}$ [virus/mL] is the concentration of infective viruses in the saliva or sputum, $x_i$ [cm] is the inoculation distance or the distance between the surface and the infected individual at the time of the cough for activity $i$, and $a$ is the XXX. This equation assumes that the droplets are expelled in a conical shape and a proportion of the spheric part of the cone is in contact with the surface. After surface inoculation, the concentration of the virus on the surface at time = $t$ was estimated using the following equation:
 
 \begin{equation}
 C(t)= C(0)  e^{-nt}
 \end{equation}
 
-where $C(t)$[virus/cm^2^] is the concentration of infective viruses at time $t$, $C(0)$[virus/cm^2^] is the initial concentration of virus in the surface, $t$[min] is the time lapsed after surface inoculation, and $n$[m^{-1}^] is the decay rate of the virus in the selected surface (metal or plastic). The number of viruses transferred from the surface to the finger $N_f$ [virus] was estimated using the following equation:
+where $C(t)$ [virus/cm^2^] is the concentration of infective viruses at time $t$, $C(0)$ [virus/cm^2^] is the initial concentration of virus in the surface, $t$[min] is the time lapsed after surface inoculation, and $n$ [m^-1^] is the decay rate of the virus in the selected surface (metal or plastic). The number of viruses transferred from the surface to the finger $N_f$ [virus] was estimated using the following equation:
 
 \begin{equation}
 N_f = C(t)  TE_{sh} A_f
 \end{equation}
 
-where $TE_{sh}$[%] is the transfer efficiency of viruses between surfaces and hands, $C(t)$ [virus/cm^2^] is the concentration of virus in the surface and $A_f$[cm^2^] is the area of the finger. For multiple touch scenarios the number of virus in the finger multiple contacts was calculated as follows: 
+where $C(t)$ [virus/cm^2^] is the concentration of virus in the surface, $TE_{sh}$[%] is the transfer efficiency of viruses between surfaces and hands, and $A_f$[cm^2^] is the area of the finger. For multiple touch scenarios the number of virus in the finger multiple contacts was calculated as follows: 
 
 The dose of viruses that entered the susceptible individual through facial membranes, $D$ [virus], was estimated as follows: 
 
@@ -84,10 +84,7 @@ D = N_f FSA_{fm} TE_{hm}
 where $N_f$[virus] is the number of virus in the finger, $FSA_{fm}$ [%] is the fractional surface area between the finger and the mucous membranes, and $TE_{hm}$ [%] is the transfer efficiency of the virus from the hand to the mucous membranes. 
 
 #### Dose-response
-In the case of highly virulent pathogens, where no prophylaxis is available, it is common practice to use data of animal trials to generate dose-response models. The dose-response relationship for SARS was obtained from the QMRA wiki <http://qmrawiki.org/experiments/sars>. This model is based on two studies [@DeAlbuquerque2006; @DeDiego2008] of SARS-CoV and Murine hepatitis virus (MHV-1) infection in mice. MHV is a commonly used surrogate for human coronaviruses. 
-
-
-The risk of infection was estimated using the following exponential dose-response model:
+In the case of highly virulent pathogens, where no prophylaxis is available, it is common practice to use data of animal trials to generate dose-response models. The dose-response relationship used in this model was obtained from the QMRA wiki <http://qmrawiki.org/experiments/sars> and is based on two studies [@DeAlbuquerque2006; @DeDiego2008] of SARS-CoV and Murine hepatitis virus (MHV-1) infection in mice. MHV is a commonly used surrogate for human coronaviruses. The risk of infection was estimated with the following equation:
 
 \begin{equation}
 P_{inf}=1 - e^{-kD}
@@ -101,18 +98,19 @@ where $P_{inf}$ [%] is the probability of infection, $k$ [-] is the infectivity 
 |:--:|:--:|:--:|:--:|:--:|:--:|
 | $C_{spGC}$ | gene copies/mL | Concentration of SARS-CoV-2 in sputum or saliva | Log~10~ gene copies/mL (data set) | ReSample | [@Wolfel2020; @Pan2020; @Kim2020; @To2020] RT-qPCR data from 9, 2, 2, and 23 patients with COVID-19|
 | $GC:TCID_{50}$ | - | Genome copies to infectious virus conversion factor | 10^2^-10^3^ | Uniform | [@Ip2016] Mean RT-qPCR to TCID~50~ ratio of 708, 547, and 185 gene copies per TCID~50~ for seasonal A(H1N1), A(H3N2), and influenza B, respectively |
-| $C_{sp}$ | TCID~50~/mL |Concentration of infective SARS-CoV-2 in sample | $\frac {C_{spGC}}{GC:TCID_{50}}$ | - | calculated|
+| $C_{sp}$ | TCID~50~/mL |Concentration of infective SARS-CoV-2 in sample | $C_{sp}=\frac {C_{spGC}}{GC:TCID_{50}}$ | - | calculated|
 | $V_s$ | mL | Volume of saliva expelled per cough | 0.0484-0.0396 | uniform | [@Nicas2009] volume = 0.044mL, [@Adhikari2019] uniform $\pm$ 10%|
 |$t_{ATM}$ | min |Time spent on the ATM | 0.75(0.38) | Normal | This study. Otained from 20 hours of observational data |
 |$t_{btw-ATM}$ | min |Time between visits | 8.4(7.1) | Normal | This study. Otained from 20 hours of observational data |
+|$t_{btw-btn}$ | min |Time between pressing button | 0.5-20 | Uniform | Assumed |
 |$x_{ATM}$| cm | ATM inoculation distance | 40 | Point value | This study. Assumed from the observational data  |
 |$x_{btn}$| cm | Button inoculation distance | 50 | Point value | Assumed |
-|$t_{0.5-stl}$| min | Half life of CoV-2 in steel | 338(35) | Normal | @VanDoremalen2020, SARS-CoV-2 infectivity assays, 40% RH and 21-23°C |
-|$t_{0.5-pl}$| min | Half life of CoV-2 in plastic | 409(39) | Normal | @VanDoremalen2020, SARS-CoV-2 infectivity assays, 40% RH and 21-23°C |
-| $n_x$| min^-1^ |Decay rate in surface $x$ (steel or plastic) | $\frac {ln(2)}{t_{0.5}}$ | - | calculated |
+|$t_{\frac {1}{2}stl}$| min | Half life of CoV-2 in steel | 338(35) | Normal | @VanDoremalen2020, SARS-CoV-2 infectivity assays, 40% RH and 21-23°C |
+|$t_{\frac {1}{2}pl}$| min | Half life of CoV-2 in plastic | 409(39) | Normal | @VanDoremalen2020, SARS-CoV-2 infectivity assays, 40% RH and 21-23°C |
+| $n_x$| min^-1^ |Decay rate in surface $x$ (steel or plastic) | $n_x=\frac {ln(2)}{t_\frac{1}{2}}$ | - | calculated |
 | $TE_{sh-stl}$ | % | Transfer efficiency of virus between steel to hand | 37.4(16) | Normal | @Lopez2013, transfer efficiency of viruses (MS2) between surface and skin at 40-65% humidity | 
 | $TE_{sh-pl}$ | % | Transfer efficiency of virus between plastic to hand | 79.5(21.2) | Normal | @Lopez2013, transfer efficiency of viruses (MS2) between surface and skin at 40-65% humidity | 
-| $TE_{hm}$ | - | Transfer efficiency from hand to mucouse membranes | 0.201(0.063) | Normal | @Pitol2017, transfer efficiency of viruses (MS2) from hand to saliva | 
+| $TE_{hm}$ | % | Transfer efficiency from hand to mucouse membranes | 20(6.3) | Normal | @Pitol2017, transfer efficiency of viruses (MS2) from hand to saliva | 
 | $A_{f}$ | cm^2^ | Finger surface area | 3.8-6.6 | Uniform | Data from @Chabrelie2018 @ @Peters2009a @Sahmel2015 | 
 | $FSA_{fm}$ | - | Fractional surface area between finger and mucous membranes | 0.5-0.8 | Uniform | Assumed | 
 | $k$ | PFU^-1^ | Parameter of the exponential dose-response| 0.00107, 0.00135, 0.00680 | Triangular | Data obtained from QMRAwiki, based on 2 studies @DeAlbuquerque2006, @DeDiego2008, using the from 0.5th, 50th, and 99.5th percentiles as min, mode, and max |
@@ -165,8 +163,7 @@ Nevertheless, our results suggest that fomite mediated transmission will be .. i
 ### Limitations
 
 *Dose Response* 
-The use of animals models in QMRA is a generally accepted @Haas2014, @Haas2015. 
-It has been shown that different viruses of the family of coronaviruses have significantly different dose-response relationships, the difference in the ID~50~ or dose require to observe a 50% response can be orders of magnitude different beween different coroaviruses [@Watanabe2010]. Therefore, a dose-response relationship developed specifically for SARS-CoV-2 would increase the accuracy of the results of the present and future risk assessments. The dose response relationship used herein predicts a 50% response when the dose is 282 PFU. 
+One of the biggest limitations of this risk assessment is the uncertainty associated with the representativeness of experimental data used to derivate the dose-response model. Although animals models are generally accepted to develop dose-response curvers @Haas2014, @Haas2015, tt has been shown that different viruses of the family of coronaviruses have significantly different dose-response relationships, the difference in the ID~50~ or dose require to observe a 50% response can be orders of magnitude different beween different coroaviruses [@Watanabe2010]. Therefore, a dose-response relationship developed specifically for SARS-CoV-2 would increase the accuracy of the results of the present and future risk assessments. The dose response relationship used herein predicts a 50% response when the dose is 282 PFU. 
 *xx*
 
 *Virus inoculation* 

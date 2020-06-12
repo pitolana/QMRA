@@ -17,11 +17,11 @@ simNum = 100 #number of simulations
 # Parameters from distributions and datasets commun to all the scenarios
 GC_TCID50 <- runif(simNum, 100, 1000) # (copies/TCID50)Proportion of infective gene copies [GC:TCID50], Ip (2015) 
 Vs <- runif(simNum, 0.0396, 0.0484) # (mL) Volume of saliva per cough, Nicas and Jones (2009), mean 0.044ml /pm 10%
-#Ncough_min <- rtruncnorm(simNum, 0, Inf, 0.57, 1) # (cough/min) Number of coughs per minute, Leung (2020)
+Ncough_min <- rtruncnorm(simNum, 0, Inf, 0.57, 1) # (cough/min) Number of coughs per minute, Leung (2020)
 TEhm <- rtruncnorm(simNum, 0, 1, TE_hm_d, sd_TE_hm_d) # Transfer Efficiency from hand to saliva, Pitol 2017
 k <-  rtri(simNum, min = Q_0.5, max = Q_99.5 , mode = Q_50) # Dose-response parameter, taking median as mode, and 2.5, 97.5% CI as min and max
 Csp <- sample(df_Csp$Csp, size=simNum, replace = TRUE) # (copies/ml) Concentration of saliva in the first 2 weeks after symptom onsent 
-Asf <- runif(simNum, Asf_min, Asf_max) # (cm^2) @Chabrelie2018 @Murai1996 @Peters2009a @Sahmel 2015
+Af <- runif(simNum, Asf_min, Asf_max) # (cm^2) @Chabrelie2018 @Murai1996 @Peters2009a @Sahmel 2015
 FSAfm <- runif(simNum, 0.5, 0.8) # Assumed
 
 ##- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -39,14 +39,14 @@ TEsh_stl <- rtruncnorm(simNum, 0, 1, TE_sh_stl_mean, TE_sh_stl_sd) # TE from sur
 angle <- 0.1 #fix, based in the images of @2Bourouiba2014
 
 # Creating data fram with all the variables and numbers simulated from distributions ATM   
-df_risk_ATM <- as.data.frame(cbind(GC_TCID50, Vs, Ncough_min, Csp, Asf, FSAfm, TEhm, t_ATM, t_btw_ATM, n_stl, TEsh_stl))
+df_risk_ATM <- as.data.frame(cbind(GC_TCID50, Vs, Ncough_min, Csp, Af, FSAfm, TEhm, t_ATM, t_btw_ATM, n_stl, TEsh_stl))
 
 # Calcuated parameters
 for (i in 1:simNum)
 {
     df_risk_ATM$Cs_0[i]  <- ((((df_risk_ATM$Csp [i]/df_risk_ATM$GC_TCID50[i])) * df_risk_ATM$Vs[i])) / ((4 *pi* x^2)/angle) #correct with 10% of the area of sphere 
     df_risk_ATM$Cs_1[i]  <- df_risk_ATM$Cs_0[i] * exp(- df_risk_ATM$n_stl[i] * df_risk_ATM$t_btw_ATM[i])
-    df_risk_ATM$Nf[i]    <- df_risk_ATM$Cs_1[i] * df_risk_ATM$Asf [i] * df_risk_ATM$TEsh_stl[i]
+    df_risk_ATM$Nf[i]    <- df_risk_ATM$Cs_1[i] * df_risk_ATM$Af [i] * df_risk_ATM$TEsh_stl[i]
     df_risk_ATM$Dose[i]  <- df_risk_ATM$Nf[i] * df_risk_ATM$FSAfm [i] * df_risk_ATM$TEhm [i]
     df_risk_ATM$P_inf[i] <- 1 - exp(- k[i] * df_risk_ATM$Dose[i])
 }
@@ -55,13 +55,13 @@ for (i in 1:simNum)
 # Sensitivity analysis 
 # calculate correlation coefficients
 
-c_TEhm <- cor.test(df$P_inf, df$TEhm, method = "spearman", exact=F)
-c_Csp <- cor.test(df$P_inf, df$Csp, method = "spearman", exact=F)
-c_Vs <- cor.test(df$P_inf, df$Vs, method = "spearman", exact=F)   
-c_t_btw_ATM <- cor.test(df$P_inf, df$t_btw_ATM, method = "spearman", exact=F)  
-c_n <- cor.test(df$P_inf, df$n_stl, method = "spearman", exact=F)  
-c_TEsh <- cor.test(df$P_inf, df$TEsh_stl, method = "spearman", exact=F)  
-c_GC_inf <- cor.test(df$P_inf, df$GC_TCID50, method = "spearman", exact=F)  
+c_TEhm <- cor.test(df_risk_ATM$P_inf, df_risk_ATM$TEhm, method = "spearman", exact=F)
+c_Csp <- cor.test(df_risk_ATM$P_inf, df_risk_ATM$Csp, method = "spearman", exact=F)
+c_Vs <- cor.test(df_risk_ATM$P_inf, df_risk_ATM$Vs, method = "spearman", exact=F)   
+c_t_btw_ATM <- cor.test(df_risk_ATM$P_inf, df_risk_ATM$t_btw_ATM, method = "spearman", exact=F)  
+c_n <- cor.test(df_risk_ATM$P_inf, df_risk_ATM$n_stl, method = "spearman", exact=F)  
+c_TEsh <- cor.test(df_risk_ATM$P_inf, df_risk_ATM$TEsh_stl, method = "spearman", exact=F)  
+c_GC_inf <- cor.test(df_risk_ATM$P_inf, df_risk_ATM$GC_TCID50, method = "spearman", exact=F)  
 
 
 
@@ -73,11 +73,8 @@ ggplot(data = corRes, aes(x = type, y = rho)) + geom_bar(stat = "identity")
 + theme_minimal() + xlab("") + theme(axis.text.x = element_text(angle = 10))
 
 
-# - - - - - - - - - - -
-
-
-
-##- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+## - - - - - - - - - - -
+## - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # Activity specific parameters
 
 #                           ---- Tran /light buttins-----   Material : plastic
@@ -91,14 +88,14 @@ TEsh_pl <- rtruncnorm(simNum, 0, 1, TE_sh_stl_mean, TE_sh_stl_sd) # TE from surf
 angle <- 0.1 #fix, based in the images of @2Bourouiba2014
 
 # Creating data fram with all the variables and numbers simulated from distributions ATM   
-df_risk_plastic <- as.data.frame(cbind(GC_TCID50, Vs, Ncough_min, Csp, FSAsf, FSAfm, TEhm, t_btw_push, x, n_pl, TEsh_pl))
+df_risk_plastic <- as.data.frame(cbind(GC_TCID50, Vs, Ncough_min, Csp, Af, FSAfm, TEhm, t_btw_push, x, n_pl, TEsh_pl))
 
 # Calcuated parameters
 for (i in 1:simNum)
 {
     df_risk_plastic$Cs_0[i] <- ((((df_risk_plastic$Csp [i]/df_risk_plastic$GC_TCID50[i])) * df_risk_plastic$Vs[i])) / ((4 *pi*x^2)/angle) 
     df_risk_plastic$Cs_1[i] <- df_risk_plastic$Cs_0[i] * exp(- df_risk_plastic$n_pl[i] * df_risk_plastic$t_btw_push[i])
-    df_risk_plastic$Nf[i]   <- df_risk_plastic$Cs_1[i] * df_risk_plastic$Asf [i] * df_risk_plastic$TEsh_pl[i]
+    df_risk_plastic$Nf[i]   <- df_risk_plastic$Cs_1[i] * df_risk_plastic$Af [i] * df_risk_plastic$TEsh_pl[i]
     df_risk_plastic$Dose[i] <- df_risk_plastic$Nf[i] * df_risk_plastic$FSAfm [i] * df_risk_plastic$TEhm [i]
     df_risk_plastic$P_inf[i] <- 1 - exp(- (df_risk_plastic$Dose [i]) * k[i])
 }
