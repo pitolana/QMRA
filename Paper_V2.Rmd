@@ -2,7 +2,8 @@
 title: "Draft 2"
 author: "Ana Karina"
 date: "4/7/2020"
-output: html_document
+#output: html_document
+output: pdf_document
 bibliography: references.bib
 ---
 
@@ -20,7 +21,7 @@ Whenever an infected individual coughs, sneezes or speaks, droplets containing p
 
 ### Exposure Assessment 
 #### Scenario definition
-Only one potential exposure pathway was analysed: the indirect transmission of viruses through contaminated surfaces. Two different scenarios where modelled: single touch (frequently touched buttons) and multiple touches (ATM or cash machine). 
+Only one potential exposure pathway was analysed: the indirect transmission of viruses through contaminated surfaces. Two different scenarios where modelled: single touch (frequently touched buttons) and multiple touches (ATM or cash machine). The stochastic and mechanistic model used to model the risk of surface-mediated transmission of SARS-CoV-2 infection is based on models described elsewhere [@Julian2018; @Julian2019]. 
 
 *Scenario 1. Single touch buttons.* Frequently touched buttons such as traffic light buttons, train buttons, and elevator buttons are of risk concern due to their frequent use by multiple people. In this scenario, we modelled the risk of touching a contaminated button followed by touching mucous membranes on the face. The material of the button was assumed to be either plastic or steel. The sequence of events leading to the viral inoculation of the susceptible individual was considered to be the following: 1) contamination event (infected person coughing directly on the surface), 2) virus decay on the surface, 3) virus transfer from the surface to the finger, 4) virus transfer from the finger to the mucous membranes  of the nose, mouth and eyes.
 
@@ -28,7 +29,7 @@ Only one potential exposure pathway was analysed: the indirect transmission of v
 
 
 ####  Virus concentration and transfer 
-Viral loads in the saliva or sputum of symptomatic COVID-19 patients within the first 14 days of symptom onset were used as model input. The virus titers used in the risk assessment were measured using quantitative reverse-transcription polymerase chain reaction (RT-qPCR)  [@Wolfel2020; @Pan2020; @Kim2020; @To2020]. The RT-qPCR method estimates the number of copies of viral RNA present in the samples. Nevertheless, the presence of coronavirus RNA does not imply the presence of infectious viruses. In risk assessments whenever data on the concentration of infectious viruses is not available, it is commonly accepted to use a gene copies to infectivity ratio to convert the concentration measured in gene copies to the concentration of infective viruses (REF). The gene copy number to infectivity ratio is, to our knowledge, not available for SARS-CoV-2. In the absence of SARS-CoV-2 data, we used the relationship reported for seasonal A(H1N1), influenza A(H3N2), and influenza B @Ip2016 (Table 1). Both, influenza viruses and coronaviruses, are enveloped, RNA viruses with similar sizes. 
+Viral loads in the saliva or sputum of symptomatic COVID-19 patients within the first 14 days of symptom onset were used as model input. The virus titers used in the risk assessment were measured using quantitative reverse-transcription polymerase chain reaction (RT-qPCR)  [@Wolfel2020; @Pan2020; @Kim2020; @To2020]. The RT-qPCR method estimates the number of copies of viral RNA present in the samples. Nevertheless, the presence of coronavirus RNA does not imply the presence of infectious viruses. In risk assessments whenever data on the concentration of infectious viruses is not available, it is commonly accepted to use a gene copies to infectivity ratio to convert the concentration measured in gene copies to the concentration of infective viruses [@Chigor2014]. The gene copy number to infectivity ratio is, to our knowledge, not available for SARS-CoV-2. In the absence of SARS-CoV-2 data, we used the relationship reported for seasonal A(H1N1), influenza A(H3N2), and influenza B @Ip2016 (Table 1). Both, influenza viruses and coronaviruses, are enveloped, RNA viruses with similar sizes. 
 
 The concentration of viruses in the surface after inoculation (through cough) was estimated using the following equation: 
 
@@ -79,9 +80,10 @@ where $P_{inf}$ [%] is the probability of infection, $k$ [-] is the infectivity 
 | $GC:TCID_{50}$ | - | Genome copies to infectious virus conversion factor | 10^2^-10^3^ | Uniform | [@Ip2016] Mean RT-qPCR to TCID~50~ ratio of 708, 547, and 185 gene copies per TCID~50~ for seasonal A(H1N1), A(H3N2), and influenza B, respectively |
 | $C_{sp}$ | TCID~50~/mL |Concentration of infective SARS-CoV-2 in sample | $C_{sp}=\frac {C_{spGC}}{GC:TCID_{50}}$ | - | calculated|
 | $V_s$ | mL | Volume of saliva expelled per cough | 0.0484-0.0396 | uniform | [@Nicas2009] volume = 0.044mL, [@Adhikari2019] uniform $\pm$ 10%|
+| $N_{cgh/min}$ |min^-1^ | Number of coughs per minute  | 0.57(1)| Normal |[@Leung2020], based on data of 17 individuals with seasonal CoV| 
 |$t_{ATM}$ | min |Time spent on the ATM | 0.75(0.38) | Normal | This study. Otained from 20 hours of observational data |
-|$t_{btw-ATM}$ | min |Time between visits | 8.4(7.1) | Normal | This study. Otained from 20 hours of observational data |
-|$t_{btw-btn}$ | min |Time between pressing button | 0.5-20 | Uniform | Assumed |
+|$t_{btw-ATM}$ | min |Time between visits | 0.13, 0.80 | Weibull | This study. Otained from 20 hours of observational data |
+|$t_{btw-btn}$ | min |Time between pressing button | 1-20 | Uniform | Assumed |
 |$x_{ATM}$| cm | ATM inoculation distance | 40 | Point value | This study. Assumed from the observational data  |
 |$x_{btn}$| cm | Button inoculation distance | 50 | Point value | Assumed |
 |$t_{\frac {1}{2}stl}$| min | Half life of CoV-2 in steel | 338(35) | Normal | @VanDoremalen2020, SARS-CoV-2 infectivity assays, 40% RH and 21-23°C |
@@ -89,15 +91,14 @@ where $P_{inf}$ [%] is the probability of infection, $k$ [-] is the infectivity 
 | $n_x$| min^-1^ |Decay rate in surface $x$ (steel or plastic) | $n_x=\frac {ln(2)}{t_\frac{1}{2}}$ | - | calculated |
 | $TE_{sh-stl}$ | % | Transfer efficiency of virus between steel to hand | 37.4(16) | Normal | @Lopez2013, transfer efficiency of viruses (MS2) between surface and skin at 40-65% humidity | 
 | $TE_{sh-pl}$ | % | Transfer efficiency of virus between plastic to hand | 79.5(21.2) | Normal | @Lopez2013, transfer efficiency of viruses (MS2) between surface and skin at 40-65% humidity | 
-| $TE_{hm}$ | % | Transfer efficiency from hand to mucouse membranes | 20(6.3) | Normal | @Pitol2017, transfer efficiency of viruses (MS2) from hand to saliva | 
-| $A_{f}$ | cm^2^ | Finger surface area | 3.8-6.6 | Uniform | Data from @Chabrelie2018 @ @Peters2009a @Sahmel2015 | 
-| $FSA_{fm}$ | - | Fractional surface area between finger and mucous membranes | 0.5-0.8 | Uniform | Assumed | 
+| $TE_{hm}$ | % | Transfer efficiency from hand to mucouse membranes | 20(6.3) | Normal | [@Pitol2017], transfer efficiency of viruses (MS2) from hand to saliva | 
+| $A_{f}$ | cm^2^ | Finger surface area | 3.9-5.9 | Uniform | Fractional surface area of partial finger [@AuYeung2008] times average hand surface area [@EPA2011]| 
 | $k$ | PFU^-1^ | Parameter of the exponential dose-response| 0.00107, 0.00135, 0.00680 | Triangular | Data obtained from QMRAwiki, based on 2 studies @DeAlbuquerque2006, @DeDiego2008, using the from 0.5th, 50th, and 99.5th percentiles as min, mode, and max |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| N~cgh/min~ |min^-1^ | Number of coughs per minute  | 0.57(1)| Normal |@Leung2020, based on data of 17 individuals with seasonal CoV| 
+The input parameters of the distributions are: Normal: mean (SD); Uniform: lower-bound - upper-bound; Triangular: min, mode, max; Weibull: scale, shape.
 
 ### Risk Characterization 
-Monte Carlo simulation method is used to incorporate uncertainty and variability of the input parameters in the risk characterization.
+Monte Carlo simulation: method is used to incorporate uncertainty and variability of the input parameters in the risk characterization.
 
 ### Sensitivity analysis
 

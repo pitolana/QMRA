@@ -8,6 +8,7 @@ infile = "data/raw/ATM_observation.csv"
 
 # Library
 library(MASS) 
+library(fitdistrplus)
 
 # read data 
 df_ATM <- read.csv (file=infile, header = TRUE, sep=",") 
@@ -16,11 +17,21 @@ df_ATM <- read.csv (file=infile, header = TRUE, sep=",")
 t_ATM_mean <- mean(df_ATM$t_ATM)
 t_ATM_sd <-  sd(df_ATM$t_ATM)    
 
-# Number of ATM visits per hour (not normally distributed, Re-Sample)
+# Number of ATM visits per hour (not normally distributed)
 visits <- df_ATM$visits_hr
 visits <- visits[!is.na(visits)]
-visits_mean <- mean(visits)
-visits_sd <- sd(visits)
+visits <- as.numeric(visits)
+visits <- visits/60
+visits[visits == 0] <- 0.000001
+
+# Fitting a weibull distribution 
+fit.weibull <- fitdist(visits, distr = "weibull", method = "mle", lower = c(0, 0))
+weibull<-summary(fit.weibull) 
+plot(fit.weibull)
+
+visits_shape <-weibull$estimate [1]
+visits_scale <-weibull$estimate [2]
+
 # output -------------------------------------------------------------------
 
 # save file

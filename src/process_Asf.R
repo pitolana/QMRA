@@ -14,9 +14,10 @@ HSA_men <-  (0.107  * 10000) /2
 
 HSA <- mean(HSA_women:HSA_men) # average men/women area (cm2) 
 
-# Area of finger (uniform using min and max of front partial finger)
-#Asf_min <- HSA * FA_min
-#Asf_max <- HSA * FA_max
+# Area of finger (uniform using min and max of front partial finger). 
+#It's divided by 5 because the FA is mean to be for 5 fingers
+Asf_min <- (HSA * FA_min)/5
+Asf_max <- (HSA * FA_max)/5
 
 #  ------------------------------Method 2 ----------------------------------
 #   Data from the paper @Chabrelie2018, cm2. He used a combination of data from elsewhere
@@ -27,8 +28,8 @@ Asf_peters <- (3.55 + 4.25)/2  # Index finger distal phalanx female and male, @P
 Asf_sahmel <- 3.8 # Six participants, 3 fingers each, @Sahmel2015
 
 
-Asf_min <- Asf_sahmel
-Asd_max <- Asf_murai
+#Asf_min <- Asf_sahmel
+#Asd_max <- Asf_murai
 
 #  ------------------------------Method 3 ----------------------------------
 

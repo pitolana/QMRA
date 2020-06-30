@@ -21,8 +21,8 @@ Ncough_min <- rtruncnorm(simNum, 0, Inf, 0.57, 1) # (cough/min) Number of coughs
 TEhm <- rtruncnorm(simNum, 0, 1, TE_hm_d, sd_TE_hm_d) # Transfer Efficiency from hand to saliva, Pitol 2017
 k <-  rtri(simNum, min = Q_0.5, max = Q_99.5 , mode = Q_50) # Dose-response parameter, taking median as mode, and 2.5, 97.5% CI as min and max
 Csp <- sample(df_Csp$Csp, size=simNum, replace = TRUE) # (copies/ml) Concentration of saliva in the first 2 weeks after symptom onsent 
-Af <- runif(simNum, Asf_min, Asf_max) # (cm^2) @Chabrelie2018 @Murai1996 @Peters2009a @Sahmel 2015
-FSAfm <- runif(simNum, 0.5, 0.8) # Assumed
+# Af <- runif(simNum, Asf_min, Asf_max) # (cm^2) @Chabrelie2018 @Murai1996 @Peters2009a @Sahmel 2015
+# FSAfm <- runif(simNum, 0.5, 0.8) # Assumed
 
 ##- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 # Activity specific parameters
@@ -30,8 +30,8 @@ FSAfm <- runif(simNum, 0.5, 0.8) # Assumed
 #                           ---- ATM------   Material : steel
 
 # The TEsh and inactivation on surface were steel specific.
-t_ATM <-  rtruncnorm(simNum, 0, Inf, t_ATM_mean, t_ATM_sd)  # Time at ATM, 20 hours of observational studies
-t_btw_ATM <- rtruncnorm(simNum, 0, Inf, 60/visits_mean, 60/visits_sd) # Time between ATM visits, observational studies
+t_ATM <-  rtruncnorm(simNum, 0, Inf, t_ATM_mean, t_ATM_sd)  # [min] Time at ATM, 20 hours of observational studies
+t_btw_ATM <- rweibull(simNum, visits_shape, visits_scale)   # [min] Time between ATM visits, observational studies
 x <- 40 # Inoculation distance (cm), assumed based on observations
 k_stl <- rtruncnorm(simNum, 0, Inf, k_stl_mean, k_stl_sd) # Half life of CoV-2 in steel
 n_stl <- log(2) / k_stl # Decay rate, function of the halflife of the virus in the surface
