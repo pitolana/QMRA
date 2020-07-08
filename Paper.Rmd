@@ -195,7 +195,11 @@ QMRA can be used to assess the significance of surface mediated transmission of 
 
 Oportunities for managing the risks associated with people's interaction with frequently touched surfaces include contact reduction at a population level, for example reduce the need for contacting trafic ligth buttons by setting them into automatic mode. Since surface cleanning of public spaces is not feasible with the frequency needed to significanlty reduce risks, signs that remind people to clean their hands after contact could potentially be encoraged (REF). 
 
+*ATM Article* High level of microbiological contamination has been detected in ATM machines. The study highligths ATM machines as potential areas for pathogen accumulation [@Allemailem2020].
 
+"The new coronavirus SARS-CoV-2 is less deadly but far more transmissible than MERS-CoV or SARS-CoV" [Petersen2020]
+
+"The median duration of virus in the respiratory samples of patients with severe disease (21 days, 14-30 days) was significantly longer than in patients with mild disease (14 days, 10-21 days; P=0.04)" [@Zheng2020]
 
 ## Supporting Information
 

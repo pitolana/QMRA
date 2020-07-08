@@ -8,7 +8,7 @@
     # @DeDiego2008. 4 groups of the transgenic mice, intranasal, graded doses of rSARS-CoV, survival monitored for 13 days
   # @Watanabe2010. Combining both dose-response articles to develop the dose-response
 
-# Option 1, using the from 2.5th, 50th, and 97.5th percentiles as min, mode, and max
+# Option 1, using the from 0.5th, 50th, and 99.5 th percentiles as min, mode, and max
 
 # Parameter (k) for the exponential model, based on the 2 articles, using 10,000 bootstrap iterations (MLE)
 Q_0.5  <- 0.00107
