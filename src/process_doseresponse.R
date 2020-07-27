@@ -1,16 +1,18 @@
 
-# Processing the data from the Dose Response paramaters
+# Processing the data from the Dose Response parameters
 
 # Data obtained from QMRAwiki http://qmrawiki.org/experiments/sars
-  # Parameter developed from 2 different studies using 2 different coronaviruses: SARS-CoV and Murine hepatitis virus (MHV-1)
-    # @DeAlbuquerque2006. A/J mice with MHV-1 virus, intranasal, survival monitored for 21 days. 
-            # Note: MHV is a commun surrogate of human coronaviruses
-    # @DeDiego2008. 4 groups of the transgenic mice, intranasal, graded doses of rSARS-CoV, survival monitored for 13 days
-  # @Watanabe2010. Combining both dose-response articles to develop the dose-response
+# Parameter developed from 2 different studies using 2 different coronaviruses: SARS-CoV and Murine hepatitis virus (MHV-1)
+#     @DeAlbuquerque2006. A/J mice with MHV-1 virus, intranasal, survival monitored for 21 days. MHV is a common surrogate of human coronaviruses
+#     @DeDiego2008. 4 groups of the transgenic mice, intranasal, graded doses of rSARS-CoV, survival monitored for 13 days
+# @Watanabe2010. Combining both dose-response articles to develop the dose-response
+
+# -> ->  @Jones2020, Adjustements for intranasal administration. uniform(0.01-0.001)
+
 
 # Option 1, using the from 0.5th, 50th, and 99.5 th percentiles as min, mode, and max
 
-# Parameter (k) for the exponential model, based on the 2 articles, using 10,000 bootstrap iterations (MLE)
+# Parameter (k) for the exponential model, based on the 2 articles, using 10,000 bootstrap iterations (MLE), wikiQMRA
 Q_0.5  <- 0.00107
 Q_2.5  <- 0.00128
 Q_5    <- 0.00135 
@@ -23,4 +25,6 @@ Q_99.5 <- 0.00680
 # Estimating SD form percentiles 
 k_sd <- round((Q_95 - Q_5)/(2 *qnorm(0.95)), 5)
 k_mean <- Q_5
+
+
 

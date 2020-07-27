@@ -1,6 +1,6 @@
 ---
 title: "Draft 2"
-author: "Ana Karina"
+author: "Ana Karina and Tim"
 date: "4/7/2020"
 #output: html_document
 output: pdf_document
@@ -15,13 +15,23 @@ require(tidyverse)
 # Risk of infection from touching surfaces contaminated with SARS-CoV-2
 ## Abstract
 ## Introduction
+SARS-CoV-2, the virus responsible for the COVID-19 pandemic, is transmitted via both direct (person-to-person) and indirect (via a contaminated environment) routes [@WHO2020;@CDC2020]. Direct transmission appears to be the leading route and occurs via prolonged exposures to respiratory droplets produced while talking, coughing, and sneezing. Infection control recommendations, based on the assumption that direct contact transmission is the leading route, include maintaining social/physical distances, wearing masks, case isolation, contact tracing, and quarantine [@Ferretti2020].
+
+Despite knowledge that SARS-CoV-2 transmission is primarily through direct transmission, indirect transmission - or transmission occurring due to interaction with a contaminated environment – remains possible.   People infected with SARS-CoV-2 shed the virus into the environment, as evidenced by extensive environmental contamination detected on surfaces in cruise ships, hospitals, and XXX [@Ong2020; @Ye2020].  Infective coronavirus, including SARS-CoV-2, persists in the environment, with experimental evidence of persistence on surfaces for prolonged periods up to 9 days [@Kampf2020].  Viruses readily transfer from contaminated surfaces to the skin upon contact [@Julian2010; @Lopez2013; @Bidawid2004; @Rusin2002; @Ansari1991] and from the skin to the mouth and saliva of individuals [@Pitol2017; @Rusin2002].  Taken together, this evidence suggests surface contamination poses a risk for indirect SARS-CoV-2 transmission, similar to other respiratory viruses [@Boone2007].  
+
+Indirect transmission events of SARS-CoV-2, even if not the dominant transmission route, complicate infection control efforts using contact tracing.  Contact tracing efforts focus on identifying people sharing spaces coincidentally with cases [@Ferretti2020].  Indirect transmission could occur in the absence of shared spaces.  As an example, transmission of SARS-CoV-1 in a Taiwanese hospital led to nosocomial infection of 31 patients. In 6 (20%) of the patients, contact tracing failed to detect direct contacts with other SARS patients, although RNA of SARS-CoV-1 was detected throughout the hospital on drinking water buttons, beds, and chairs [@Chen2004].  Based on these findings, the authors suggest indirect transmission as the cause of transmission amongst a subset of those infected. [@Chen2004]. If indirect transmission is an important route for SARS-CoV-2, control strategies will necessarily have to integrate hand hygiene interventions and surface disinfection alongside contact tracing [@Mcclellan2020].
+
+Despite the potential importance of indirect transmission, it is difficult to estimate its importance relative to direct transmission [@BarOn2020]. Quantitative Microbial Risk Analysis (QMRA) provides a framework for understanding health risks from indirect transmission and provides insights into potential impacts of infection control recommendations.  Mechanistic models of fomite-mediated transmission events within the context of QMRA frameworks have been used to inform risks for children interacting with contaminated toys [@Julian2009], sanitation workers collecting and processing urine for nutrient recovery [@Bischel2019], transmission of norovirus within a houseboat [@Canales2019], and impact of surface disinfection [@Ryan2014a].  QMRA has also been adapted to evaluate risks for hospital transmission of MERS-CoV through droplets and aerosolized particles.  The analysis highlighted reductions in risk to hospital staff through mask use (>90% estimated risk reduction) and increased air exchange (up to 58% estimated risk reduction) [@Adhikari2019].  
+
+In this study, a mechanistic model of indirect transmission within the QMRA framework is developed to estimate likelihood of transmission in community settings and inform guidance on surface disinfection strategies. Specifically, the risks of infection with SARS-CoV-2 are estimated for interactions with shared spaces (i.e., use of ATMs, buttons on cross walks and trains).  Risk reductions are further estimated under various feasible surface disinfection strategies.    
+
 ## Materials and Methods 
 ### Hazard Identification
 Whenever an infected individual coughs, sneezes or speaks, droplets containing pathogens make their way to the proximal surfaces [@Bourouiba2014]. It has been shown that SARS-CoV-2 can persist on surfaces like plastic, metal, or glass at room temperature for hours to days [@VanDoremalen2020]. Additionally, viruses are known to transfer from surfaces to the hands upon contact [@Julian2010; @Lopez2013; @Bidawid2004; @Rusin2002; @Ansari1991], as well as from hands to the lips and saliva of individuals [@Rusin2002; @Pitol2017]. Given the fact that people frequently touch their faces and the mucous membranes within the face (nose, eyes and mouth) [@Kwok2015; @Nicas2008], we have identified the indirect (surface-mediated) transfer of SARS-CoV-2 as a relevant transmission pathway. Therefore, this risk assessment is designed to explore the risks of infection associated with the surface-mediated transmission of SARS-CoV-2. 
 
 ### Exposure Assessment 
 #### Scenario definition
-Only one potential exposure pathway was analysed: the indirect transmission of viruses through contaminated surfaces. Two different scenarios where modelled: single touch (frequently touched buttons) and multiple touches (ATM or cash machine). The stochastic and mechanistic model used to model the risk of surface-mediated transmission of SARS-CoV-2 infection is based on models described elsewhere [@Julian2018; @Julian2019]. 
+Only one potential exposure pathway was analysed: the indirect transmission of viruses through contaminated surfaces. Two different scenarios where modelled: single touch (frequently touched buttons) and multiple touches (ATM or cash machine). The stochastic and mechanistic model used to model the risk of surface-mediated transmission of SARS-CoV-2 infection is based on models described elsewhere [@Julian2018; @Julian2009]. 
 
 *Scenario 1. Single touch buttons.* Frequently touched buttons such as traffic light buttons, train buttons, and elevator buttons are of risk concern due to their frequent use by multiple people. In this scenario, we modelled the risk of touching a contaminated button followed by touching mucous membranes on the face. The material of the button was assumed to be either plastic or steel. The sequence of events leading to the viral inoculation of the susceptible individual was considered to be the following: 1) contamination event (infected person coughing directly on the surface), 2) virus decay on the surface, 3) virus transfer from the surface to the finger, 4) virus transfer from the finger to the mucous membranes  of the nose, mouth and eyes.
 
@@ -108,6 +118,12 @@ A sensitivity analysis was performed to investigate hot the variabilty and uncer
 ```{r dose-response, include=FALSE}
 
 ```
+
+"Persons that are sneezing and/or coughing are advised by governments to stay at home."
+
+SARS-CoV-2 QMRA model design to investigate the relative contribution of different transmission routes (contact, droplet, inhalation) for healthcare workers suggested that, although fomite-mediated transmission is not the main route of expossure, it accounts for 8% of the probability of infection without the use of PPE [@2020Jones].
+
+"The guidance also includes considerations based on the current level of community transmission,"
 
 ## Supporting Information
 
