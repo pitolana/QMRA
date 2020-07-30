@@ -1,0 +1,149 @@
+---
+journal: jacsat
+type: article
+author:
+  - name: Ana K. Pitol
+    aff: Department of Civil and Environmental Engineering, Imperial College London, United Kingdom
+    email: \email{a.pitol-garcia@imperial.ac.uk}
+
+  - name: Timothy R. Julian
+    aff: Department of Environmental Microbiology, Eawag, Dubendorf, Switzerland
+    alsoaff: Department of Epidemiology and Public Health, Swiss Tropical and Public Health Institute, Basel, Switzerland
+    email: \email{tim.julian@eawag.ch}
+
+title:
+  formatted: Risk reduction of SARS-CoV-2 transmission through disinfection of frequently touched surfaces. A Quantitative Microbial Risk Assessment. 
+  short: An \textsf{achemso} demo
+abbr: IR,NMR,UV
+keywords: American Chemical Society, \LaTeX
+abstract: |
+
+  not exceeding 200 words
+  A graphic for the Table of Contents (TOC) must be supplied with each Letter
+  This graphic can be no wider than 8 cm and no taller than 4 cm and should be prepared following the specifications under Artwork.
+
+bibliography: acstest.bib
+csl: american-chemical-society.csl
+output: rticles::acs_article
+includes:
+      in_header: preamble.tex
+---
+
+\begin{tocentry}
+Add image (TOC)
+\end{tocentry}
+
+# Introduction
+SARS-CoV-2, the virus responsible for the COVID-19 pandemic, is transmitted via both direct (person-to-person) and indirect (via a contaminated environment) routes [@WHO2020;@CDC2020]. Direct transmission appears to be the leading route and occurs via prolonged exposures to respiratory droplets produced while talking, coughing, and sneezing. Infection control recommendations, based on the assumption that direct contact transmission is the leading route, include maintaining social/physical distances, wearing masks, case isolation, contact tracing, and quarantine [@Ferretti2020].
+
+Despite knowledge that SARS-CoV-2 transmission is primarily through direct transmission, indirect transmission - or transmission occurring due to interaction with a contaminated environment – remains possible.   People infected with SARS-CoV-2 shed the virus into the environment, as evidenced by extensive environmental contamination detected on surfaces in cruise ships, hospitals, and public spaces in urban areas such as bus stations and public squares [@Ong2020; @Ye2020; Abrahao2020].  Infective coronavirus persists in the environment, with experimental evidence of persistence on surfaces for prolonged periods up to 9 days [@Kampf2020].  Viruses readily transfer from contaminated surfaces to the skin upon contact [@Julian2010; @Lopez2013; @Bidawid2004; @Rusin2002; @Ansari1991] and from the skin to the mouth and saliva of individuals [@Pitol2017; @Rusin2002].  Taken together, this evidence suggests surface contamination poses a risk for indirect SARS-CoV-2 transmission, similar to other respiratory viruses [@Boone2007].  
+
+Indirect transmission events of SARS-CoV-2, even if not the dominant transmission route, complicate infection control efforts using contact tracing.  Contact tracing efforts focus on identifying people sharing spaces coincidentally with cases [@Ferretti2020].  Indirect transmission could occur in the absence of shared spaces.  As an example, transmission of SARS-CoV-1 in a Taiwanese hospital led to nosocomial infection of 31 patients. In 6 (20%) of the patients, contact tracing failed to detect direct contacts with other SARS patients, although RNA of SARS-CoV-1 was detected throughout the hospital on drinking water buttons, beds, and chairs [@Chen2004].  Based on these findings, the authors suggest indirect transmission as the cause of transmission amongst a subset of those infected [@Chen2004]. If indirect transmission is an important route for SARS-CoV-2, control strategies will necessarily have to integrate hand hygiene interventions and surface disinfection alongside contact tracing [@Mcclellan2020].
+
+Despite the potential importance of indirect transmission, it is difficult to estimate its importance relative to direct transmission [@BarOn2020]. Quantitative Microbial Risk Analysis (QMRA) provides a framework for understanding health risks from indirect transmission and provides insights into potential impacts of infection control recommendations.  Mechanistic models of fomite-mediated transmission events within the context of QMRA frameworks have been used to inform risks for children interacting with contaminated toys [@Julian2009], sanitation workers collecting and processing urine for nutrient recovery [@Bischel2019], transmission of norovirus within a houseboat [@Canales2019], and impact of surface disinfection [@Ryan2014a].  QMRA has also been adapted to evaluate risks for hospital transmission of MERS-CoV through droplets and aerosolized particles.  The analysis highlighted reductions in risk to hospital staff through mask use (>90% estimated risk reduction) and increased air exchange (up to 58% estimated risk reduction) [@Adhikari2019].  
+
+In this study, a mechanistic model of indirect transmission within the QMRA framework is developed to estimate likelihood of transmission in community settings and inform guidance on surface disinfection strategies. Specifically, the risks of infection with SARS-CoV-2 are estimated for interactions with shared spaces (i.e., use of ATMs, buttons on cross walks and trains).  Risk reductions are further estimated under various feasible surface disinfection strategies. 
+
+
+
+
+# Results and discussion
+
+Frequently touched surfaces such as traffic light and train buttons are of risk concern due to their frequent use by multiple people.
+SARS-CoV-2 contamination has been reported in public surfaces of an urban area in Brazil. Concentration of viruses [genome units /m2] was between 20 and 2990. The surfaces were bench, ground, handrail made out metal and concrete [@Abrahao2020].
+
+
+
+## Surface disinfection
+
+XX% reduction
+
+## Floats
+
+New float types are automatically set up by the class file.  The
+means graphics are included as follows (Scheme \ref{sch:example}).  As
+illustrated, the float is ``here'' if possible.
+\begin{scheme}
+  Your scheme graphic would go here: \texttt{.eps} format\\
+  for \LaTeX\, or \texttt{.pdf} (or \texttt{.png}) for pdf\LaTeX\\
+  \textsc{ChemDraw} files are best saved as \texttt{.eps} files:\\
+  these can be scaled without loss of quality, and can be\\
+  converted to \texttt{.pdf} files easily using \texttt{eps2pdf}.\\
+  %\includegraphics{graphic}
+  \caption{An example scheme}
+  \label{sch:example}
+\end{scheme}
+
+```{r,echo=FALSE,fig.cap='test'}
+plot(1:10)
+```
+
+\begin{figure}
+  As well as the standard float types \texttt{table}\\
+  and \texttt{figure}, the class also recognises\\
+  \texttt{scheme}, \texttt{chart} and \texttt{graph}.
+  \caption{An example figure}
+  \label{fgr:example}
+\end{figure}
+
+Charts, figures and schemes do not necessarily have to be labelled or
+captioned.  However, tables should always have a title. It is
+possible to include a number and label for a graphic without any
+title, using an empty argument to the \texttt{\textbackslash caption}
+macro.
+
+The use of the different floating environments is not required, but
+it is intended to make document preparation easier for authors. In
+general, you should place your graphics where they make logical
+sense; the production process will move them if needed.
+
+
+# Materials and Methods
+
+We modeled the risk of SARS-CoV-2 infection due to contact with frequently touched buttons and estimated the effect that different surface disinfection practices have on infection risk. The sequence of events leading to the viral inoculation of the susceptible individual is considered to be the following: 1) contamination event (infected person coughing on the hand followed by a hand-to-surface contact), 2) virus decay on the surface, 3) virus transfer from the surface to finger, and 4) virus transfer from finger to facial mucous membranes. The stochastic-mechanistic model used herein is based on models described elsewhere [@Julian2018; @Julian2009]. Two scenarios were considered: risk of infection with and without surface disinfection. Additionally, different disinfection regimes were tested. 
+
+Viral loads in the saliva or sputum of symptomatic COVID-19 patients within the first 14 days of symptom onset were used as model input. The viral loads were measured using quantitative reverse-transcription polymerase chain reaction (RT-qPCR)  [@Wolfel2020; @Pan2020; @Kim2020; @To2020]. PCR data does not distinguish between infectious and non-infectious virus. To convert gene copies to infections virus, we used a ratio reported for influenza viruses [@Ip2016].
+
+The proportion of viral particles emitted in a cough that is transferred to the hand when the hand is used to cover the mouth was estimated using a conical dispersion model  [@Nicas2006] -  the particles were assumed to be conically spread over a 80 angle, at a distance of 5cm. The transfer of viruses from the hand of the infected individual to the surface was estimated with: $Csurface=Chand*TEsh$, where $Chand$ is the concentration of viruses on the hand $[virus/cm^2]$, and TEsh $[%]$ is the transfer efficiency of viruses between the surface (assumed to be metal) and the hand. Once the surface was contaminated, the concentration of virus in the surface at any given time was calculated as follows $Csurf(t)= Csurf(0)$ $e^{-nt}$, where $Csurf(t)$ $[virus/cm^2]$ is the concentration of infective viruses at time $t$, $Csurf(0)$ $[virus/cm2^]$ is the initial concentration of virus in the surface, $t$ $[min]$ is the time lapsed after surface inoculation, and $n$ $[m^{-1}]$ is the decay rate of the virus in the selected surface (metal or plastic).
+
+
+
+(Eq. \ref{eqn:example}).
+\begin{equation}
+  \frac{\mathrm{d}}{\mathrm{d}x} \, r^2 = 2r \label{eqn:example}
+\end{equation}
+
+\begin{equation}
+  \begin{minipage}[c]{0.80\linewidth}
+    \centering
+    As illustrated here, the width of \\
+    the minipage needs to allow some  \\
+    space for the number to fit in to.
+    %\includegraphics{graphic}
+  \end{minipage}
+  \label{eqn:graphic}
+\end{equation}
+
+# Experimental
+
+
+
+
+
+\begin{acknowledgement}
+
+The author thanks Sunil Dogga, Emmanuel Frousteyand, and Danilo Cuccato for their help with the model. 
+
+\end{acknowledgement}
+
+\begin{suppinfo}
+
+
+Experimental procedures and
+characterization data for all new compounds. The class will
+automatically add a sentence pointing to the information on-line:
+
+\end{suppinfo}
+## References
+
+

@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 droplets produced by an infected host during coughing 
 
-The subjects touched their eyes, nostrils, and lops an average of 16(11) times an hour @Nicas2008
+Quantified using video recordings 10 subjects wotking on an office during 3 hr. The subjects touched their eyes, nostrils, and lops an average of 16(11) times an hour @Nicas2008.
 
 WHO recomends:
 washing hands often with soap and water
