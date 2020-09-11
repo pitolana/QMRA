@@ -128,6 +128,8 @@ SARS-CoV-2 QMRA model design to investigate the relative contribution of differe
 
 "The guidance also includes considerations based on the current level of community transmission,"
 
+Using available information of virus trasport and decay, this paper lighths 
+
 ## Supporting Information
 
 ## Author Information
