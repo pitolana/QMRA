@@ -1,11 +1,16 @@
-# Processing data of concentration of SARS-CoV-2 samples in sputum (taken as saliva), and samples
+# Processing data of concentration of SARS-CoV-2 samples in sputum, and samples
 # taken from the uper respiratory track (urt). 
 
 # Data obtained from: 
     #"Viral load of SARS-CoV-2 in clinical samples" (Pan, 2020) 
-    #"Virological assessment of hospitalized cases of coronavirus disease 2019" (Wölfel,2020)
+    #"Virological assessment of hospitalized cases of coronavirus disease 2019" (Wölfel,2020); Figure 2_ Data
     #"Viral load kinetics of SARS-CoV-2 infection in first two patients in Korea" (Kim, 2020)
     #"Temporal profiles of viral load in posterior oropharyngeal saliva samples and serum antibody responses during infection by SARS-CoV-2: an observational cohort study" (To, 2020)
+
+
+# Assumptions: Since concentrations on sputum, uper respiratiry track (urt), and saliva were similar, we used 
+             # from sputum, urt and saliva in the concentration dataset.
+             # From the study @To2020, initial and peak concentrations were both used 
 
 # setup -------------------------------------------------------------------
 # external libraries
