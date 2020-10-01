@@ -4,6 +4,7 @@
 # Surface:        Buttons
 # Inoculation:    Cough on hands followed by hand to surface transfer
 # Intervention:   Face Mask
+# Frequency:      60-240 min
 
 # setup ------------------------------------------------------------------------
 # external libraries
@@ -24,7 +25,7 @@ source ("src/process_mask.R") # Reduction in inoculation on hands when mask is u
 
 
 # Simulation parameters:
-simNum = 500 # Number of simulations
+simNum = 50000 # Number of simulations
 # ----- #
 
 # Paramaters (non used in this version of the model)
@@ -53,12 +54,12 @@ ratio <- x * tan (angle) # [cm] Ratio of circular plane on a cone at a distance 
 area_inoculation <- pi * ratio^2 # [cm2] circular area from a conical distribution at a distance x
 
 # Scenario specific parameters
-prev <- med_prev #  low_prev = 0.002, med_prev = 0.01, high_prev = 0.05, data justified in "process_prevalence.R"
-compliance <- 0.75  # use 0, 0.25, 0.50, 0.75
+prev <- low_prev #  low_prev = 0.002, med_prev = 0.01, high_prev = 0.05, data justified in "process_prevalence.R"
+compliance <- 0.50  # use 0, 0.25, 0.50, 0.75
 
 mask <- runif(simNum, mask_min, mask_max) #@Davies2013
 t_dis <- 0 # ALWAYS 0
-dt <- runif(simNum, 60, 240) # Time between touching surfaces (Transport, Trafic lingths), data justified in "process_PublicTransport.R"
+dt <- runif(simNum, 60, 240) # Time between touching surfaces 
 days <- 7 # Days simulated 
 surf_dis <- runif(simNum, 10^3, 10^4) # DOESN't MATTER
 # -----------------------------------------------------------------------------
@@ -152,7 +153,6 @@ for (p in 1:simNum) {
 
 
 # - - - - - - - - - - - - -
-# Sensitivity analysis 
 
 
 
@@ -213,40 +213,40 @@ ggplot(data = daily_risk, aes(x = time/60, y = P_inf)) + geom_point() +
 
 #  Low Prevalence
 #  No disinfection
-mask_pLow_d0_risk25 <- mean(df_stl_btn$risk_0.25)
-mask_pLow_d0_risk50 <- mean(df_stl_btn$risk_0.50)
-mask_pLow_d0_risk75 <- mean(df_stl_btn$risk_0.75)
+mask_freq_pLow_d0_risk25 <- mean(df_stl_btn$risk_0.25)
+mask_freq_pLow_d0_risk50 <- mean(df_stl_btn$risk_0.50)
+mask_freq_pLow_d0_risk75 <- mean(df_stl_btn$risk_0.75)
 
-mask_pLow_d0 <- c(mask_pLow_d0_risk25, mask_pLow_d0_risk50, mask_pLow_d0_risk75)
-write.csv (mask_pLow_d0, file= "data/processed/mask_pLow_d0.csv")
+mask_freq_pLow_d0 <- c(mask_freq_pLow_d0_risk25, mask_freq_pLow_d0_risk50, mask_freq_pLow_d0_risk75)
+write.csv (mask_freq_pLow_d0, file= "data/processed/mask_freq_pLow_d0.csv")
 
 #  Low Prevalence
 #  Disinfection at 7 am (dis = 1)
-mask_pLow_d1_risk25 <- mean(df_stl_btn$risk_0.25)
-mask_pLow_d1_risk50 <- mean(df_stl_btn$risk_0.50)
-mask_pLow_d1_risk75 <- mean(df_stl_btn$risk_0.75)
+mask_freq_pLow_d1_risk25 <- mean(df_stl_btn$risk_0.25)
+mask_freq_pLow_d1_risk50 <- mean(df_stl_btn$risk_0.50)
+mask_freq_pLow_d1_risk75 <- mean(df_stl_btn$risk_0.75)
 
-mask_pLow_d1 <- c(mask_pLow_d1_risk25, mask_pLow_d1_risk50, mask_pLow_d1_risk75)
-write.csv (mask_pLow_d1, file= "data/processed/mask_pLow_d1.csv")
+mask_freq_pLow_d1 <- c(mask_freq_pLow_d1_risk25, mask_freq_pLow_d1_risk50, mask_freq_pLow_d1_risk75)
+write.csv (mask_freq_pLow_d1, file= "data/processed/mask_freq_pLow_d1.csv")
 
 #  Low Prevalence
 #  Disinfection at 12 pm (dis = 2)
-mask_pLow_d2_risk25 <- mean(df_stl_btn$risk_0.25)
-mask_pLow_d2_risk50 <- mean(df_stl_btn$risk_0.50)
-mask_pLow_d2_risk75 <- mean(df_stl_btn$risk_0.75)
+mask_freq_pLow_d2_risk25 <- mean(df_stl_btn$risk_0.25)
+mask_freq_pLow_d2_risk50 <- mean(df_stl_btn$risk_0.50)
+mask_freq_pLow_d2_risk75 <- mean(df_stl_btn$risk_0.75)
 
-mask_pLow_d2 <- c(mask_pLow_d2_risk25, mask_pLow_d2_risk50, mask_pLow_d2_risk75)
-write.csv (mask_pLow_d2, file= "data/processed/mask_pLow_d2.csv")
+mask_freq_pLow_d2 <- c(mask_freq_pLow_d2_risk25, mask_freq_pLow_d2_risk50, mask_freq_pLow_d2_risk75)
+write.csv (mask_freq_pLow_d2, file= "data/processed/mask_freq_pLow_d2.csv")
 
 
 #  Low Prevalence
 #  Disinfection at 7am and 12 pm (dis = 3)
-mask_pLow_d3_risk25 <- mean(df_stl_btn$risk_0.25)
-mask_pLow_d3_risk50 <- mean(df_stl_btn$risk_0.50)
-mask_pLow_d3_risk75 <- mean(df_stl_btn$risk_0.75)
+mask_freq_pLow_d3_risk25 <- mean(df_stl_btn$risk_0.25)
+mask_freq_pLow_d3_risk50 <- mean(df_stl_btn$risk_0.50)
+mask_freq_pLow_d3_risk75 <- mean(df_stl_btn$risk_0.75)
 
-mask_pLow_d3 <- c(mask_pLow_d3_risk25, mask_pLow_d3_risk50, mask_pLow_d3_risk75)
-write.csv (mask_pLow_d3, file= "data/processed/mask_pLow_d3.csv")
+mask_freq_pLow_d3 <- c(mask_freq_pLow_d3_risk25, mask_freq_pLow_d3_risk50, mask_freq_pLow_d3_risk75)
+write.csv (mask_freq_pLow_d3, file= "data/processed/mask_freq_pLow_d3.csv")
 
 
 
@@ -257,40 +257,40 @@ write.csv (mask_pLow_d3, file= "data/processed/mask_pLow_d3.csv")
 
 #  Med Prevalence
 #  No disinfection
-mask_pMed_d0_risk25 <- mean(df_stl_btn$risk_0.25)
-mask_pMed_d0_risk50 <- mean(df_stl_btn$risk_0.50)
-mask_pMed_d0_risk75 <- mean(df_stl_btn$risk_0.75)
+mask_freq_pMed_d0_risk25 <- mean(df_stl_btn$risk_0.25)
+mask_freq_pMed_d0_risk50 <- mean(df_stl_btn$risk_0.50)
+mask_freq_pMed_d0_risk75 <- mean(df_stl_btn$risk_0.75)
 
-mask_pMed_d0 <- c(mask_pMed_d0_risk25, mask_pMed_d0_risk50, mask_pMed_d0_risk75)
-write.csv (mask_pMed_d0, file= "data/processed/mask_pMed_d0.csv")
+mask_freq_pMed_d0 <- c(mask_freq_pMed_d0_risk25, mask_freq_pMed_d0_risk50, mask_freq_pMed_d0_risk75)
+write.csv (mask_freq_pMed_d0, file= "data/processed/mask_freq_pMed_d0.csv")
 
 #  Low Prevalence
 #  Disinfection at 7 am (dis = 1)
-mask_pMed_d1_risk25 <- mean(df_stl_btn$risk_0.25)
-mask_pMed_d1_risk50 <- mean(df_stl_btn$risk_0.50)
-mask_pMed_d1_risk75 <- mean(df_stl_btn$risk_0.75)
+mask_freq_pMed_d1_risk25 <- mean(df_stl_btn$risk_0.25)
+mask_freq_pMed_d1_risk50 <- mean(df_stl_btn$risk_0.50)
+mask_freq_pMed_d1_risk75 <- mean(df_stl_btn$risk_0.75)
 
-mask_pMed_d1 <- c(mask_pMed_d1_risk25, mask_pMed_d1_risk50, mask_pMed_d1_risk75)
-write.csv (mask_pMed_d1, file= "data/processed/mask_pMed_d1.csv")
+mask_freq_pMed_d1 <- c(mask_freq_pMed_d1_risk25, mask_freq_pMed_d1_risk50, mask_freq_pMed_d1_risk75)
+write.csv (mask_freq_pMed_d1, file= "data/processed/mask_freq_pMed_d1.csv")
 
 #  Low Prevalence
 #  Disinfection at 12 pm (dis = 2)
-mask_pMed_d2_risk25 <- mean(df_stl_btn$risk_0.25)
-mask_pMed_d2_risk50 <- mean(df_stl_btn$risk_0.50)
-mask_pMed_d2_risk75 <- mean(df_stl_btn$risk_0.75)
+mask_freq_pMed_d2_risk25 <- mean(df_stl_btn$risk_0.25)
+mask_freq_pMed_d2_risk50 <- mean(df_stl_btn$risk_0.50)
+mask_freq_pMed_d2_risk75 <- mean(df_stl_btn$risk_0.75)
 
-mask_pMed_d2 <- c(mask_pMed_d2_risk25, mask_pMed_d2_risk50, mask_pMed_d2_risk75)
-write.csv (mask_pMed_d2, file= "data/processed/mask_pMed_d2.csv")
+mask_freq_pMed_d2 <- c(mask_freq_pMed_d2_risk25, mask_freq_pMed_d2_risk50, mask_freq_pMed_d2_risk75)
+write.csv (mask_freq_pMed_d2, file= "data/processed/mask_freq_pMed_d2.csv")
 
 
 #  Low Prevalence
 #  Disinfection at 7am and 12 pm (dis = 3)
-mask_pMed_d3_risk25 <- mean(df_stl_btn$risk_0.25)
-mask_pMed_d3_risk50 <- mean(df_stl_btn$risk_0.50)
-mask_pMed_d3_risk75 <- mean(df_stl_btn$risk_0.75)
+mask_freq_pMed_d3_risk25 <- mean(df_stl_btn$risk_0.25)
+mask_freq_pMed_d3_risk50 <- mean(df_stl_btn$risk_0.50)
+mask_freq_pMed_d3_risk75 <- mean(df_stl_btn$risk_0.75)
 
-mask_pMed_d3 <- c(mask_pMed_d3_risk25, mask_pMed_d3_risk50, mask_pMed_d3_risk75)
-write.csv (mask_pMed_d3, file= "data/processed/mask_pMed_d3.csv")
+mask_freq_pMed_d3 <- c(mask_freq_pMed_d3_risk25, mask_freq_pMed_d3_risk50, mask_freq_pMed_d3_risk75)
+write.csv (mask_freq_pMed_d3, file= "data/processed/mask_freq_pMed_d3.csv")
 
 
 
@@ -300,42 +300,40 @@ write.csv (mask_pMed_d3, file= "data/processed/mask_pMed_d3.csv")
 
 #  High Prevalence
 #  No disinfection
-mask_pHigh_d0_risk25 <- mean(df_stl_btn$risk_0.25)
-mask_pHigh_d0_risk50 <- mean(df_stl_btn$risk_0.50)
-mask_pHigh_d0_risk75 <- mean(df_stl_btn$risk_0.75)
+mask_freq_pHigh_d0_risk25 <- mean(df_stl_btn$risk_0.25)
+mask_freq_pHigh_d0_risk50 <- mean(df_stl_btn$risk_0.50)
+mask_freq_pHigh_d0_risk75 <- mean(df_stl_btn$risk_0.75)
 
-mask_pHigh_d0 <- c(mask_pHigh_d0_risk25, mask_pHigh_d0_risk50, mask_pHigh_d0_risk75)
-write.csv (mask_pHigh_d0, file= "data/processed/mask_pHigh_d0.csv")
+mask_freq_pHigh_d0 <- c(mask_freq_pHigh_d0_risk25, mask_freq_pHigh_d0_risk50, mask_freq_pHigh_d0_risk75)
+write.csv (mask_freq_pHigh_d0, file= "data/processed/mask_freq_pHigh_d0.csv")
 
 #  High Prevalence
 #  Disinfection at 7 am (dis = 1)
-mask_pHigh_d1_risk25 <- mean(df_stl_btn$risk_0.25)
-mask_pHigh_d1_risk50 <- mean(df_stl_btn$risk_0.50)
-mask_pHigh_d1_risk75 <- mean(df_stl_btn$risk_0.75)
+mask_freq_pHigh_d1_risk25 <- mean(df_stl_btn$risk_0.25)
+mask_freq_pHigh_d1_risk50 <- mean(df_stl_btn$risk_0.50)
+mask_freq_pHigh_d1_risk75 <- mean(df_stl_btn$risk_0.75)
 
-mask_pHigh_d1 <- c(mask_pHigh_d1_risk25, mask_pHigh_d1_risk50, mask_pHigh_d1_risk75)
-write.csv (mask_pHigh_d1, file= "data/processed/mask_pHigh_d1.csv")
+mask_freq_pHigh_d1 <- c(mask_freq_pHigh_d1_risk25, mask_freq_pHigh_d1_risk50, mask_freq_pHigh_d1_risk75)
+write.csv (mask_freq_pHigh_d1, file= "data/processed/mask_freq_pHigh_d1.csv")
 
 #  High Prevalence
 #  Disinfection at 12 pm (dis = 2)
-mask_pHigh_d2_risk25 <- mean(df_stl_btn$risk_0.25)
-mask_pHigh_d2_risk50 <- mean(df_stl_btn$risk_0.50)
-mask_pHigh_d2_risk75 <- mean(df_stl_btn$risk_0.75)
+mask_freq_pHigh_d2_risk25 <- mean(df_stl_btn$risk_0.25)
+mask_freq_pHigh_d2_risk50 <- mean(df_stl_btn$risk_0.50)
+mask_freq_pHigh_d2_risk75 <- mean(df_stl_btn$risk_0.75)
 
-mask_pHigh_d2 <- c(mask_pHigh_d2_risk25, mask_pHigh_d2_risk50, mask_pHigh_d2_risk75)
-write.csv (mask_pHigh_d2, file= "data/processed/mask_pHigh_d2.csv")
+mask_freq_pHigh_d2 <- c(mask_freq_pHigh_d2_risk25, mask_freq_pHigh_d2_risk50, mask_freq_pHigh_d2_risk75)
+write.csv (mask_freq_pHigh_d2, file= "data/processed/mask_freq_pHigh_d2.csv")
 
 
 #  High Prevalence
 #  Disinfection at 7am and 12 pm (dis = 3)
-mask_pHigh_d3_risk25 <- mean(df_stl_btn$risk_0.25)
-mask_pHigh_d3_risk50 <- mean(df_stl_btn$risk_0.50)
-mask_pHigh_d3_risk75 <- mean(df_stl_btn$risk_0.75)
+mask_freq_pHigh_d3_risk25 <- mean(df_stl_btn$risk_0.25)
+mask_freq_pHigh_d3_risk50 <- mean(df_stl_btn$risk_0.50)
+mask_freq_pHigh_d3_risk75 <- mean(df_stl_btn$risk_0.75)
 
-mask_pHigh_d3 <- c(mask_pHigh_d3_risk25, mask_pHigh_d3_risk50, mask_pHigh_d3_risk75)
-write.csv (mask_pHigh_d3, file= "data/processed/mask_pHigh_d3.csv")
-
-
+mask_freq_pHigh_d3 <- c(mask_freq_pHigh_d3_risk25, mask_freq_pHigh_d3_risk50, mask_freq_pHigh_d3_risk75)
+write.csv (mask_freq_pHigh_d3, file= "data/processed/mask_freq_pHigh_d3.csv")
 
 
 
@@ -343,135 +341,5 @@ write.csv (mask_pHigh_d3, file= "data/processed/mask_pHigh_d3.csv")
 
 
 
-
-
-#   - - - - - - - - - - - - -  MASK 2 (Uniform until 100%)
-# - - - - - - - - - - -  Collecting data from simulations - - - - - - - - - - - 
-
-#  Intervention: Mask
-
-#  Low Prevalence
-#  No disinfection
-mask2_pLow_d0_risk25 <- mean(df_stl_btn$risk_0.25)
-mask2_pLow_d0_risk50 <- mean(df_stl_btn$risk_0.50)
-mask2_pLow_d0_risk75 <- mean(df_stl_btn$risk_0.75)
-
-mask2_pLow_d0 <- c(mask2_pLow_d0_risk25, mask2_pLow_d0_risk50, mask2_pLow_d0_risk75)
-write.csv (mask2_pLow_d0, file= "data/processed/mask2_pLow_d0.csv")
-
-#  Low Prevalence
-#  Disinfection at 7 am (dis = 1)
-mask2_pLow_d1_risk25 <- mean(df_stl_btn$risk_0.25)
-mask2_pLow_d1_risk50 <- mean(df_stl_btn$risk_0.50)
-mask2_pLow_d1_risk75 <- mean(df_stl_btn$risk_0.75)
-
-mask2_pLow_d1 <- c(mask2_pLow_d1_risk25, mask2_pLow_d1_risk50, mask2_pLow_d1_risk75)
-write.csv (mask2_pLow_d1, file= "data/processed/mask2_pLow_d1.csv")
-
-#  Low Prevalence
-#  Disinfection at 12 pm (dis = 2)
-mask2_pLow_d2_risk25 <- mean(df_stl_btn$risk_0.25)
-mask2_pLow_d2_risk50 <- mean(df_stl_btn$risk_0.50)
-mask2_pLow_d2_risk75 <- mean(df_stl_btn$risk_0.75)
-
-mask2_pLow_d2 <- c(mask2_pLow_d2_risk25, mask2_pLow_d2_risk50, mask2_pLow_d2_risk75)
-write.csv (mask2_pLow_d2, file= "data/processed/mask2_pLow_d2.csv")
-
-
-#  Low Prevalence
-#  Disinfection at 7am and 12 pm (dis = 3)
-mask2_pLow_d3_risk25 <- mean(df_stl_btn$risk_0.25)
-mask2_pLow_d3_risk50 <- mean(df_stl_btn$risk_0.50)
-mask2_pLow_d3_risk75 <- mean(df_stl_btn$risk_0.75)
-
-mask2_pLow_d3 <- c(mask2_pLow_d3_risk25, mask2_pLow_d3_risk50, mask2_pLow_d3_risk75)
-write.csv (mask2_pLow_d3, file= "data/processed/mask2_pLow_d3.csv")
-
-
-
-
-
-
-
-
-#  Med Prevalence
-#  No disinfection
-mask2_pMed_d0_risk25 <- mean(df_stl_btn$risk_0.25)
-mask2_pMed_d0_risk50 <- mean(df_stl_btn$risk_0.50)
-mask2_pMed_d0_risk75 <- mean(df_stl_btn$risk_0.75)
-
-mask2_pMed_d0 <- c(mask2_pMed_d0_risk25, mask2_pMed_d0_risk50, mask2_pMed_d0_risk75)
-write.csv (mask2_pMed_d0, file= "data/processed/mask2_pMed_d0.csv")
-
-#  Low Prevalence
-#  Disinfection at 7 am (dis = 1)
-mask2_pMed_d1_risk25 <- mean(df_stl_btn$risk_0.25)
-mask2_pMed_d1_risk50 <- mean(df_stl_btn$risk_0.50)
-mask2_pMed_d1_risk75 <- mean(df_stl_btn$risk_0.75)
-
-mask2_pMed_d1 <- c(mask2_pMed_d1_risk25, mask2_pMed_d1_risk50, mask2_pMed_d1_risk75)
-write.csv (mask2_pMed_d1, file= "data/processed/mask2_pMed_d1.csv")
-
-#  Low Prevalence
-#  Disinfection at 12 pm (dis = 2)
-mask2_pMed_d2_risk25 <- mean(df_stl_btn$risk_0.25)
-mask2_pMed_d2_risk50 <- mean(df_stl_btn$risk_0.50)
-mask2_pMed_d2_risk75 <- mean(df_stl_btn$risk_0.75)
-
-mask2_pMed_d2 <- c(mask2_pMed_d2_risk25, mask2_pMed_d2_risk50, mask2_pMed_d2_risk75)
-write.csv (mask2_pMed_d2, file= "data/processed/mask2_pMed_d2.csv")
-
-
-#  Low Prevalence
-#  Disinfection at 7am and 12 pm (dis = 3)
-mask2_pMed_d3_risk25 <- mean(df_stl_btn$risk_0.25)
-mask2_pMed_d3_risk50 <- mean(df_stl_btn$risk_0.50)
-mask2_pMed_d3_risk75 <- mean(df_stl_btn$risk_0.75)
-
-mask2_pMed_d3 <- c(mask2_pMed_d3_risk25, mask2_pMed_d3_risk50, mask2_pMed_d3_risk75)
-write.csv (mask2_pMed_d3, file= "data/processed/mask2_pMed_d3.csv")
-
-
-
-
-
-
-
-#  High Prevalence
-#  No disinfection
-mask2_pHigh_d0_risk25 <- mean(df_stl_btn$risk_0.25)
-mask2_pHigh_d0_risk50 <- mean(df_stl_btn$risk_0.50)
-mask2_pHigh_d0_risk75 <- mean(df_stl_btn$risk_0.75)
-
-mask2_pHigh_d0 <- c(mask2_pHigh_d0_risk25, mask2_pHigh_d0_risk50, mask2_pHigh_d0_risk75)
-write.csv (mask2_pHigh_d0, file= "data/processed/mask2_pHigh_d0.csv")
-
-#  High Prevalence
-#  Disinfection at 7 am (dis = 1)
-mask2_pHigh_d1_risk25 <- mean(df_stl_btn$risk_0.25)
-mask2_pHigh_d1_risk50 <- mean(df_stl_btn$risk_0.50)
-mask2_pHigh_d1_risk75 <- mean(df_stl_btn$risk_0.75)
-
-mask2_pHigh_d1 <- c(mask2_pHigh_d1_risk25, mask2_pHigh_d1_risk50, mask2_pHigh_d1_risk75)
-write.csv (mask2_pHigh_d1, file= "data/processed/mask2_pHigh_d1.csv")
-
-#  High Prevalence
-#  Disinfection at 12 pm (dis = 2)
-mask2_pHigh_d2_risk25 <- mean(df_stl_btn$risk_0.25)
-mask2_pHigh_d2_risk50 <- mean(df_stl_btn$risk_0.50)
-mask2_pHigh_d2_risk75 <- mean(df_stl_btn$risk_0.75)
-
-mask2_pHigh_d2 <- c(mask2_pHigh_d2_risk25, mask2_pHigh_d2_risk50, mask2_pHigh_d2_risk75)
-write.csv (mask2_pHigh_d2, file= "data/processed/mask2_pHigh_d2.csv")
-
-
-#  High Prevalence
-#  Disinfection at 7am and 12 pm (dis = 3)
-mask2_pHigh_d3_risk25 <- mean(df_stl_btn$risk_0.25)
-mask2_pHigh_d3_risk50 <- mean(df_stl_btn$risk_0.50)
-mask2_pHigh_d3_risk75 <- mean(df_stl_btn$risk_0.75)
-
-mask2_pHigh_d3 <- c(mask2_pHigh_d3_risk25, mask2_pHigh_d3_risk50, mask2_pHigh_d3_risk75)
-write.csv (mask2_pHigh_d3, file= "data/processed/mask2_pHigh_d3.csv")
 
 

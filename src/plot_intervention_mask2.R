@@ -37,23 +37,23 @@ hand_Low$intervention <- "hand"
 hand_Low$condition    <- c("Comp 25%", "Comp 50%", "Comp 75%")
 hand_Low$prevalence   <- "Low Prevalence (0.2%)"
 
-# MASK
-mask_Low_1 <-  read.csv (file="data/processed/mask_pLow_d1.csv", header = TRUE, sep=",")
-mask_Low_2 <-  read.csv (file="data/processed/mask_pLow_d2.csv", header = TRUE, sep=",")
-mask_Low_3 <-  read.csv (file="data/processed/mask_pLow_d3.csv", header = TRUE, sep=",")
+# mask2
+mask2_Low_1 <-  read.csv (file="data/processed/mask2_pLow_d1.csv", header = TRUE, sep=",")
+mask2_Low_2 <-  read.csv (file="data/processed/mask2_pLow_d2.csv", header = TRUE, sep=",")
+mask2_Low_3 <-  read.csv (file="data/processed/mask2_pLow_d3.csv", header = TRUE, sep=",")
 
-m_a <- mask_Low_1$x
-m_b <- mask_Low_2$x
-m_c <- mask_Low_3$x
+m_a <- mask2_Low_1$x
+m_b <- mask2_Low_2$x
+m_c <- mask2_Low_3$x
 
-mask_Low <- as.data.frame(rbind(m_a,m_b,m_c)) 
-mask_Low$intervention <- "mask"
-mask_Low$condition    <- c(".Comp 25%", ".Comp 50%", ".Comp 75%")
-mask_Low$prevalence   <- "Low Prevalence (0.2%)"
+mask2_Low <- as.data.frame(rbind(m_a,m_b,m_c)) 
+mask2_Low$intervention <- "mask2"
+mask2_Low$condition    <- c(".Comp 25%", ".Comp 50%", ".Comp 75%")
+mask2_Low$prevalence   <- "Low Prevalence (0.2%)"
 
 
 # ------------
-Low_prev <- rbind(cnt, hand_Low, surf_Low, mask_Low)
+Low_prev <- rbind(cnt, hand_Low, surf_Low, mask2_Low)
 Low_prev[1, 4] <- "-None"
 Low_prev[1, 5] <- "-None"
 Low_prev[1, 6] <- "Low Prevalence (0.2%)"
@@ -123,23 +123,23 @@ hand_Med$intervention <- "hand"
 hand_Med$condition    <- c("Comp 25%", "Comp 50%", "Comp 75%")
 hand_Med$prevalence   <- "Medium Prevalence (1%)"
 
-# MASK
-mask_Med_1 <-  read.csv (file="data/processed/mask_pMed_d1.csv", header = TRUE, sep=",")
-mask_Med_2 <-  read.csv (file="data/processed/mask_pMed_d2.csv", header = TRUE, sep=",")
-mask_Med_3 <-  read.csv (file="data/processed/mask_pMed_d3.csv", header = TRUE, sep=",")
+# mask2
+mask2_Med_1 <-  read.csv (file="data/processed/mask2_pMed_d1.csv", header = TRUE, sep=",")
+mask2_Med_2 <-  read.csv (file="data/processed/mask2_pMed_d2.csv", header = TRUE, sep=",")
+mask2_Med_3 <-  read.csv (file="data/processed/mask2_pMed_d3.csv", header = TRUE, sep=",")
 
-m_a <- mask_Med_1$x
-m_b <- mask_Med_2$x
-m_c <- mask_Med_3$x
+m_a <- mask2_Med_1$x
+m_b <- mask2_Med_2$x
+m_c <- mask2_Med_3$x
 
-mask_Med <- as.data.frame(rbind(m_a,m_b,m_c)) 
-mask_Med$intervention <- "mask"
-mask_Med$condition    <- c(".Comp 25%", ".Comp 50%", ".Comp 75%")
-mask_Med$prevalence   <- "Medium Prevalence (1%)"
+mask2_Med <- as.data.frame(rbind(m_a,m_b,m_c)) 
+mask2_Med$intervention <- "mask2"
+mask2_Med$condition    <- c(".Comp 25%", ".Comp 50%", ".Comp 75%")
+mask2_Med$prevalence   <- "Medium Prevalence (1%)"
 
 
 # ------------
-Med_prev <- rbind(cnt, hand_Med, surf_Med, mask_Med)
+Med_prev <- rbind(cnt, hand_Med, surf_Med, mask2_Med)
 Med_prev[1, 4] <- "-None"
 Med_prev[1, 5] <- "-None"
 Med_prev[1, 6]<- "Medium Prevalence (1%)"
@@ -195,23 +195,23 @@ hand_High$intervention <- "hand"
 hand_High$condition    <- c("Comp 25%", "Comp 50%", "Comp 75%")
 hand_High$prevalence   <- "High Prevalence (5%)"
 
-# MASK
-mask_High_1 <-  read.csv (file="data/processed/mask_pHigh_d1.csv", header = TRUE, sep=",")
-mask_High_2 <-  read.csv (file="data/processed/mask_pHigh_d2.csv", header = TRUE, sep=",")
-mask_High_3 <-  read.csv (file="data/processed/mask_pHigh_d3.csv", header = TRUE, sep=",")
+# mask2
+mask2_High_1 <-  read.csv (file="data/processed/mask2_pHigh_d1.csv", header = TRUE, sep=",")
+mask2_High_2 <-  read.csv (file="data/processed/mask2_pHigh_d2.csv", header = TRUE, sep=",")
+mask2_High_3 <-  read.csv (file="data/processed/mask2_pHigh_d3.csv", header = TRUE, sep=",")
 
-m_a <- mask_High_1$x
-m_b <- mask_High_2$x
-m_c <- mask_High_3$x
+m_a <- mask2_High_1$x
+m_b <- mask2_High_2$x
+m_c <- mask2_High_3$x
 
-mask_High <- as.data.frame(rbind(m_a,m_b,m_c)) 
-mask_High$intervention <- "mask"
-mask_High$condition    <- c(".Comp 25%", ".Comp 50%", ".Comp 75%")
-mask_High$prevalence   <- "High Prevalence (5%)"
+mask2_High <- as.data.frame(rbind(m_a,m_b,m_c)) 
+mask2_High$intervention <- "mask2"
+mask2_High$condition    <- c(".Comp 25%", ".Comp 50%", ".Comp 75%")
+mask2_High$prevalence   <- "High Prevalence (5%)"
 
 
 # ------------
-High_prev <- rbind(cnt, hand_High, surf_High, mask_High)
+High_prev <- rbind(cnt, hand_High, surf_High, mask2_High)
 High_prev[1, 4] <- "-None"
 High_prev[1, 5] <- "-None"
 High_prev[1, 6] <- "High Prevalence (5%)"
@@ -250,7 +250,7 @@ All_prev$prevalence_f = factor(All_prev$prevalence, levels=c('Low Prevalence (0.
 plot_all <- ggplot(All_prev, aes(x=condition, y=V2, color=intervention)) + 
     geom_point()+
     scale_color_manual(values=c("red", "#D55E00","#0072B2", "#009E73"))+
-    scale_y_log10(limits = c(1e-22,1e-2)) +
+    scale_y_log10() +
     theme_bw() +
     facet_grid(. ~ prevalence_f) +
     ylab("Risk of Infection") +
