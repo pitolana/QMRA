@@ -23,7 +23,7 @@ source ("src/process_SurfaceConcentration.R")
 
 # Simulation parameters:
 # simNum = 50 # Number of simulations
-Csp <-  1000  # sample(df_Csp$Csp, size=simNum, replace = TRUE) # Concentration in saliva and sputum
+Csp <-  1  # sample(df_Csp$Csp, size=simNum, replace = TRUE) # Concentration in saliva and sputum
 # ----- #
 
 # General parameters
@@ -136,7 +136,7 @@ log10conc<- log10(daily_risk$Csurface2)
 
 # Histogram   - - - -  Log-transforming concentration
 log10conc <- as.data.frame(log10conc)
-p <- ggplot(log10conc, aes(x = log10conc)) + geom_histogram() 
+p <- ggplot(log10conc, aes(x = log10conc)) + geom_histogram() + theme_bw() 
 p
 
 
