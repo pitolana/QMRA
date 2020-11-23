@@ -54,8 +54,8 @@ ratio <- x * tan (angle) # [cm] Ratio of circular plane on a cone at a distance 
 area_inoculation <- pi * ratio^2 # [cm2] circular area from a conical distribution at a distance x
 
 # Scenario specific parameters
-prev <- high_prev #  low_prev = 0.002, med_prev = 0.01, high_prev = 0.05, data justified in "process_prevalence.R"
-t_dis <- 3 # Disinfection strategy ([0= No dis], [1=7am], [2=12pm], [3=7am and 12pm], [4=12 and 6pm])
+prev <- low_prev #  low_prev = 0.002, med_prev = 0.01, high_prev = 0.05, data justified in "process_prevalence.R"
+t_dis <- 0 # Disinfection strategy ([0= No dis], [1=7am], [2=12pm], [3=7am and 12pm], [4=12 and 6pm])
 
 dt <- runif(simNum, 60, 240) # Time between touching surfaces
 days <- 7 # Days simulated 
@@ -141,9 +141,23 @@ for (p in 1:simNum) {
     daily_risk$P_inf <- (1 - exp(- (daily_risk$dose * df_stl_btn$k[p])))
     
     # Daily risk
+    df_stl_btn$risk_0.05[p] <- quantile(daily_risk$P_inf, 0.05)
     df_stl_btn$risk_0.25[p] <- quantile(daily_risk$P_inf, 0.25)
     df_stl_btn$risk_0.50[p] <- quantile(daily_risk$P_inf, 0.50)
     df_stl_btn$risk_0.75[p] <- quantile(daily_risk$P_inf, 0.75)
+    df_stl_btn$risk_0.95[p] <- quantile(daily_risk$P_inf, 0.95)
+    df_stl_btn$risk_mean[p] <- mean(daily_risk$P_inf)
+    df_stl_btn$risk_avobe1000000[p] <- sum(daily_risk$P_inf > 10^-6) 
+    df_stl_btn$risk_below1000000[p]  <- sum(daily_risk$P_inf < 10^-6)
+    df_stl_btn$risk_avobe100000[p] <- sum(daily_risk$P_inf > 10^-5) 
+    df_stl_btn$risk_below100000[p]  <- sum(daily_risk$P_inf < 10^-5)
+    df_stl_btn$risk_avobe10000[p] <- sum(daily_risk$P_inf > 10^-4) 
+    df_stl_btn$risk_below10000[p]  <- sum(daily_risk$P_inf < 10^-4)
+    df_stl_btn$risk_avobe1000[p] <- sum(daily_risk$P_inf > 10^-3) 
+    df_stl_btn$risk_below1000[p]  <- sum(daily_risk$P_inf < 10^-3)
+    df_stl_btn$risk_avobe100[p] <- sum(daily_risk$P_inf > 10^-2) 
+    df_stl_btn$risk_below100[p]  <- sum(daily_risk$P_inf < 10^-2)
+    
 }
 
 
@@ -179,156 +193,5 @@ corRes <- data.frame(type = c("TEhm", "Csp", "Vs", "dt","n", "TEsh", "TEhs", "GC
 
 # Plot the correlation coefficients 
 ggplot(data = corRes, aes(x = type, y = rho)) + geom_bar(stat = "identity") 
-
-
-
-temp <- ggplot(data = df_stl_btn, aes(x = df_stl_btn$TEsh_stl, y=df_stl_btn$risk_0.50))+ geom_point()
-temp <- temp + scale_x_continuous(trans='log10') + scale_y_continuous(trans='log10')
-temp
-
-
-
-# - - - - - - - - - - -
-
-
-# Example of probability of infection
-library(scales)
-
-ggplot(data = daily_risk, aes(x = time/60, y = P_inf)) + geom_point() + 
-    scale_y_log10(breaks = trans_breaks("log10", function(x) 10^x),
-                  labels = trans_format("log10", math_format(10^.x))) 
-
-
-
-
-# - - - - - - - - - - -  Collecting data from simulations - - - - - - - - - - - 
-
-#  Disinfection strategies
-
-#  Low Prevalence
-#  No disinfection
-surf_freq_pLow_d0_risk25 <- mean(df_stl_btn$risk_0.25)
-surf_freq_pLow_d0_risk50 <- mean(df_stl_btn$risk_0.50)
-surf_freq_pLow_d0_risk75 <- mean(df_stl_btn$risk_0.75)
-
-surf_freq_pLow_d0 <- c(surf_freq_pLow_d0_risk25, surf_freq_pLow_d0_risk50, surf_freq_pLow_d0_risk75)
-write.csv (surf_freq_pLow_d0, file= "data/processed/surf_freq_pLow_d0.csv")
-
-#  Low Prevalence
-#  Disinfection at 7 am (dis = 1)
-surf_freq_pLow_d1_risk25 <- mean(df_stl_btn$risk_0.25)
-surf_freq_pLow_d1_risk50 <- mean(df_stl_btn$risk_0.50)
-surf_freq_pLow_d1_risk75 <- mean(df_stl_btn$risk_0.75)
-
-surf_freq_pLow_d1 <- c(surf_freq_pLow_d1_risk25, surf_freq_pLow_d1_risk50, surf_freq_pLow_d1_risk75)
-write.csv (surf_freq_pLow_d1, file= "data/processed/surf_freq_pLow_d1.csv")
-
-#  Low Prevalence
-#  Disinfection at 12 pm (dis = 2)
-surf_freq_pLow_d2_risk25 <- mean(df_stl_btn$risk_0.25)
-surf_freq_pLow_d2_risk50 <- mean(df_stl_btn$risk_0.50)
-surf_freq_pLow_d2_risk75 <- mean(df_stl_btn$risk_0.75)
-
-surf_freq_pLow_d2 <- c(surf_freq_pLow_d2_risk25, surf_freq_pLow_d2_risk50, surf_freq_pLow_d2_risk75)
-write.csv (surf_freq_pLow_d2, file= "data/processed/surf_freq_pLow_d2.csv")
-
-
-#  Low Prevalence
-#  Disinfection at 7am and 12 pm (dis = 3)
-surf_freq_pLow_d3_risk25 <- mean(df_stl_btn$risk_0.25)
-surf_freq_pLow_d3_risk50 <- mean(df_stl_btn$risk_0.50)
-surf_freq_pLow_d3_risk75 <- mean(df_stl_btn$risk_0.75)
-
-surf_freq_pLow_d3 <- c(surf_freq_pLow_d3_risk25, surf_freq_pLow_d3_risk50, surf_freq_pLow_d3_risk75)
-write.csv (surf_freq_pLow_d3, file= "data/processed/surf_freq_pLow_d3.csv")
-
-
-
-
-
-
-
-
-#  Med Prevalence
-#  No disinfection
-surf_freq_pMed_d0_risk25 <- mean(df_stl_btn$risk_0.25)
-surf_freq_pMed_d0_risk50 <- mean(df_stl_btn$risk_0.50)
-surf_freq_pMed_d0_risk75 <- mean(df_stl_btn$risk_0.75)
-
-surf_freq_pMed_d0 <- c(surf_freq_pMed_d0_risk25, surf_freq_pMed_d0_risk50, surf_freq_pMed_d0_risk75)
-write.csv (surf_freq_pMed_d0, file= "data/processed/surf_freq_pMed_d0.csv")
-
-#  Low Prevalence
-#  Disinfection at 7 am (dis = 1)
-surf_freq_pMed_d1_risk25 <- mean(df_stl_btn$risk_0.25)
-surf_freq_pMed_d1_risk50 <- mean(df_stl_btn$risk_0.50)
-surf_freq_pMed_d1_risk75 <- mean(df_stl_btn$risk_0.75)
-
-surf_freq_pMed_d1 <- c(surf_freq_pMed_d1_risk25, surf_freq_pMed_d1_risk50, surf_freq_pMed_d1_risk75)
-write.csv (surf_freq_pMed_d1, file= "data/processed/surf_freq_pMed_d1.csv")
-
-#  Low Prevalence
-#  Disinfection at 12 pm (dis = 2)
-surf_freq_pMed_d2_risk25 <- mean(df_stl_btn$risk_0.25)
-surf_freq_pMed_d2_risk50 <- mean(df_stl_btn$risk_0.50)
-surf_freq_pMed_d2_risk75 <- mean(df_stl_btn$risk_0.75)
-
-surf_freq_pMed_d2 <- c(surf_freq_pMed_d2_risk25, surf_freq_pMed_d2_risk50, surf_freq_pMed_d2_risk75)
-write.csv (surf_freq_pMed_d2, file= "data/processed/surf_freq_pMed_d2.csv")
-
-
-#  Low Prevalence
-#  Disinfection at 7am and 12 pm (dis = 3)
-surf_freq_pMed_d3_risk25 <- mean(df_stl_btn$risk_0.25)
-surf_freq_pMed_d3_risk50 <- mean(df_stl_btn$risk_0.50)
-surf_freq_pMed_d3_risk75 <- mean(df_stl_btn$risk_0.75)
-
-surf_freq_pMed_d3 <- c(surf_freq_pMed_d3_risk25, surf_freq_pMed_d3_risk50, surf_freq_pMed_d3_risk75)
-write.csv (surf_freq_pMed_d3, file= "data/processed/surf_freq_pMed_d3.csv")
-
-
-
-
-
-
-
-#  High Prevalence
-#  No disinfection
-surf_freq_pHigh_d0_risk25 <- mean(df_stl_btn$risk_0.25)
-surf_freq_pHigh_d0_risk50 <- mean(df_stl_btn$risk_0.50)
-surf_freq_pHigh_d0_risk75 <- mean(df_stl_btn$risk_0.75)
-
-surf_freq_pHigh_d0 <- c(surf_freq_pHigh_d0_risk25, surf_freq_pHigh_d0_risk50, surf_freq_pHigh_d0_risk75)
-write.csv (surf_freq_pHigh_d0, file= "data/processed/surf_freq_pHigh_d0.csv")
-
-#  High Prevalence
-#  Disinfection at 7 am (dis = 1)
-surf_freq_pHigh_d1_risk25 <- mean(df_stl_btn$risk_0.25)
-surf_freq_pHigh_d1_risk50 <- mean(df_stl_btn$risk_0.50)
-surf_freq_pHigh_d1_risk75 <- mean(df_stl_btn$risk_0.75)
-
-surf_freq_pHigh_d1 <- c(surf_freq_pHigh_d1_risk25, surf_freq_pHigh_d1_risk50, surf_freq_pHigh_d1_risk75)
-write.csv (surf_freq_pHigh_d1, file= "data/processed/surf_freq_pHigh_d1.csv")
-
-#  High Prevalence
-#  Disinfection at 12 pm (dis = 2)
-surf_freq_pHigh_d2_risk25 <- mean(df_stl_btn$risk_0.25)
-surf_freq_pHigh_d2_risk50 <- mean(df_stl_btn$risk_0.50)
-surf_freq_pHigh_d2_risk75 <- mean(df_stl_btn$risk_0.75)
-
-surf_freq_pHigh_d2 <- c(surf_freq_pHigh_d2_risk25, surf_freq_pHigh_d2_risk50, surf_freq_pHigh_d2_risk75)
-write.csv (surf_freq_pHigh_d2, file= "data/processed/surf_freq_pHigh_d2.csv")
-
-
-#  High Prevalence
-#  Disinfection at 7am and 12 pm (dis = 3)
-surf_freq_pHigh_d3_risk25 <- mean(df_stl_btn$risk_0.25)
-surf_freq_pHigh_d3_risk50 <- mean(df_stl_btn$risk_0.50)
-surf_freq_pHigh_d3_risk75 <- mean(df_stl_btn$risk_0.75)
-
-surf_freq_pHigh_d3 <- c(surf_freq_pHigh_d3_risk25, surf_freq_pHigh_d3_risk50, surf_freq_pHigh_d3_risk75)
-write.csv (surf_freq_pHigh_d3, file= "data/processed/surf_freq_pHigh_d3.csv")
-
-
 
 

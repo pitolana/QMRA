@@ -7,8 +7,6 @@
 #     @DeDiego2008. 4 groups of the transgenic mice, intranasal, graded doses of rSARS-CoV, survival monitored for 13 days
 # @Watanabe2010. Combining both dose-response articles to develop the dose-response
 
-# -> ->  @Jones2020, Adjustements for intranasal administration. uniform(0.01-0.001)
-
 
 # Option 1, using the from 0.5th, 50th, and 99.5 th percentiles as min, mode, and max
 
@@ -20,11 +18,3 @@ Q_50   <- 0.00246
 Q_95   <- 0.00459
 Q_97.5 <- 0.00527
 Q_99.5 <- 0.00680
-
-# Option 2, using normal distribution, calculating the SD based on 9
-# Estimating SD form percentiles 
-k_sd <- round((Q_95 - Q_5)/(2 *qnorm(0.95)), 5)
-k_mean <- Q_5
-
-
-

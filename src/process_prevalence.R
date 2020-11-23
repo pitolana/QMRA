@@ -25,6 +25,6 @@ Prev_Brz <- 3.8 / (58/14)
 # Prevalence is between 0.4 (Netherlands) and 1.9 (Geneva). 
 # Based on this data, three prevalence scenarios were suggested (0.2,1 and 5%)
 
-low_prev  <- 0.002
-med_prev  <- 0.01
-high_prev <- 0.05
+low_prev  <- 0.002   # Prevalence of 0.2 %
+med_prev  <- 0.01    # Prevalence of 1 %
+high_prev <- 0.05    # Prevalence of 5 %

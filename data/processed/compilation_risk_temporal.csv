@@ -1,9 +1,0 @@
-pMed,pLow,pHigh,Disinfection,Percentile,intervention
-1.35E-07,2.08E-10,2.37E-05,No_Surf,0.5,No
-2.00E-08,1.33E-13,1.88E-05,Surf_7am,0.5,Surface
-1.35E-08,2.86E-14,1.70E-05,Surf_3pm,0.5,Surface
-4.57E-09,1.62E-13,1.18E-05,Surf_12_6pm,0.5,Surface
-2.16E-07,1.58E-09,2.36E-05,No_Hand,0.5,No
-1.10E-08,8.83E-12,4.06E-06,Hand_0.25,0.5,Hand
-7.22E-11,8.14E-13,1.56E-08,Hand_0.50,0.5,Hand
-1.24E-11,2.26E-14,3.54E-09,Hand_0.75,0.5,Hand

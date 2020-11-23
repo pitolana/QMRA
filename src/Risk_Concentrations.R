@@ -16,7 +16,7 @@ df_conc <- c(seq(0.001, 0.01, by=0.0001), seq(0.01, 0.1, by=0.001), seq(0.1, 1, 
 df_conc <- as.data.frame(df_conc)
 
 # Simulation parameters:
-simNum = 10000 # Number of simulations
+simNum = 50000 # Number of simulations
 # ----- #
 
 
@@ -116,36 +116,23 @@ print(plot_all)
 ### All data toguether
 
 ggplot() + 
-    geom_point(data=df_conc, aes(x = df_conc, y = Q_95), color="gray",size=1.5,alpha=.5) + 
-    geom_point(data=df_conc, aes(x = df_conc, y = Q_05), color="gray",size=1.5,alpha=.5) + 
-    geom_point(data=df_conc, aes(x = df_conc, y = Q_50), color="black",size=1.5,alpha=.5) + 
-    geom_errorbar(data=df_positive, aes(x=gc/.6, ymin=Q_05, ymax=Q_95), width=.3, position=position_dodge(0.05), color="darkred") +
-    geom_point(data=df_positive, aes(x = gc/.6, y = Q_50), shape=23, fill="darkred", color="black", size=3, alpha=1) +
-    geom_errorbar(data=df_positive_Brazil, aes(x=gc/0.6, ymin=Q_05, ymax=Q_95), width=.3, position=position_dodge(0.05), color="darkgreen") +
-    geom_point(data=df_positive_Brazil, aes(x = gc/0.6, y = Q_50), shape=23, fill="darkgreen", color="black", size=3, alpha=1) +
-    geom_hline(yintercept=1.638598e-04, linetype="dashed", color = "black", size=0.8) +
-    geom_hline(yintercept=6.849966e-07, linetype="dashed", color = "black", size=0.8) +
-    geom_hline(yintercept=1.050096e-08, linetype="dashed", color = "black", size=0.8) +
-    scale_x_log10(limits = c(1e-3,1e8), breaks = c(1e-2, 1, 1e2, 1e4, 1e6, 1e8)) +
+    geom_point(data=df_conc, aes(x = df_conc, y = Q_95), color="gray",size=1,alpha=.5) + 
+    geom_point(data=df_conc, aes(x = df_conc, y = Q_05), color="gray",size=1,alpha=.5) + 
+    geom_point(data=df_conc, aes(x = df_conc, y = Q_50), color="black",size=1,alpha=.5) + 
+    geom_errorbar(data=df_positive, aes(x=gc/.6, ymin=Q_05, ymax=Q_95), width=.3, position=position_dodge(0.05), color="#009E73") +
+    geom_point(data=df_positive, aes(x = gc/.6, y = Q_50), shape=23, fill="#009E73", color="black", size=3, alpha=1) +
+    geom_errorbar(data=df_positive_Brazil, aes(x=gc/0.6, ymin=Q_05, ymax=Q_95), width=.3, position=position_dodge(0.05), color="#D55E00") +
+    geom_point(data=df_positive_Brazil, aes(x = gc/0.6, y = Q_50), shape=21, fill="#D55E00", color="black", size=3, alpha=1) +
+    geom_hline(yintercept=1.638598e-04, linetype="dashed", color = "black", size=0.6) +
+    geom_hline(yintercept=6.849966e-07, linetype="dashed", color = "black", size=0.6) +
+    geom_hline(yintercept=1.050096e-08, linetype="dashed", color = "black", size=0.6) +
+    scale_x_log10(limits = c(1e-2,1e8), breaks = c(1e-2, 1, 1e2, 1e4, 1e6, 1e8)) +
     scale_y_log10(limits = c(1e-10,1), breaks = c(1, 1e-2, 1e-4, 1e-6, 1e-8, 1e-10)) +
     ylab("Risk of Infection") +
-    xlab("SARS-CoV-2 concentration on surfaces (gene copies/cm2)") +
+    xlab("SARS-CoV-2 concentration (gene copies/cm2)") +
     theme_bw() 
 
 
 
-
-ggplot() + 
-    geom_point(data=df_conc, aes(x = df_conc, y = Q_95), color="gray",size=1.5,alpha=.5) + 
-    geom_point(data=df_conc, aes(x = df_conc, y = Q_05), color="gray",size=1.5,alpha=.5) + 
-    geom_point(data=df_conc, aes(x = df_conc, y = Q_50), color="black",size=1.5,alpha=.5) + 
-    geom_errorbar(data=df_positive, aes(x=gc/.6, ymin=Q_05, ymax=Q_95), width=.3, position=position_dodge(0.05), color="darkred") +
-    geom_point(data=df_positive, aes(x = gc/.6, y = Q_50), shape=23, fill="darkred", color="black", size=3, alpha=1) +
-    geom_errorbar(data=df_positive_Brazil, aes(x=gc/0.6, ymin=Q_05, ymax=Q_95), width=.3, position=position_dodge(0.05), color="darkgreen") +
-    geom_point(data=df_positive_Brazil, aes(x = gc/0.6, y = Q_50), shape=23, fill="darkgreen", color="black", size=3, alpha=1) +
-    scale_x_log10(limits = c(1e-3,1e8), breaks = c(1e-2, 1, 1e2, 1e4, 1e6, 1e8)) +
-    ylab("Risk of Infection") +
-    xlab("SARS-CoV-2 concentration on surfaces (gene copies/cm2)") +
-    theme_bw() 
 
 

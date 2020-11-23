@@ -1,4 +1,4 @@
-# Processing data of concentration of SARS-CoV-2 samples in sputum, and samples
+# Processing data of concentration of SARS-CoV-2 samples in sputum, and saliva samples
 # taken from the uper respiratory track (urt). 
 
 # Data obtained from: 
@@ -15,16 +15,18 @@
 # setup -------------------------------------------------------------------
 # external libraries
 
+
 # read and process data  --------------------------------------------------
-infile = "data/raw/concentrationsaliva.csv"
+infile = "data/raw/concentrationsaliva.csv"  # NOTE: The concentrations were taken from plots, therefore are not 
+                                             # meant to be exact but an order of magnitud estimate
 
 
 # read data 
 df_Csp <- read.csv (file=infile, header = TRUE, sep=",") # C_sp is viral load in log10 copies/ml
-df_Csp <- subset(df_Csp, day_corr<15)
+df_Csp <- subset(df_Csp, day_corr<15)  # Taking only the data for the first 2 weeks of symptom onset
 df_Csp <- na.omit(df_Csp)
 
-df_Csp <- mutate(df_Csp, Csp = 10^ log10_C)
+df_Csp <- mutate(df_Csp, Csp = 10^ log10_C) 
 df_Csp$Csp[df_Csp$Csp == 1] <- 0 # replacing 10^0 by 0
 
 

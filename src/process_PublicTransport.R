@@ -18,12 +18,13 @@ M3_Par     <- 1   #(metro) https://wikiroutes.info/es/paris#ab=48.86453-02.44266
 Bus_91     <- 2   #(bus) https://wikiroutes.info/es/paris#ab=48.83945-02.31911-48.85125-02.36992&var=1
 
 
+# Based on several time-schedlues, frequently touched bottons were assumed to be touched every 1 to 20 min
 dt_PublicTranspot <- runif(simNum, 1, 20)
 
 
 # Trafic light button for pedestrians in busy London street
 # Assumptions, every time is red for pedestrians people presses it. 
 # Time based on the Traffic Signal Timing Manual (USA) https://ops.fhwa.dot.gov/publications/fhwahop08024/chapter6.htm#6.6
-# Assumtopn based on traffic lights, people touches the light once every 2 min
+# Assumption based on traffic lights, people touches the light once every 2 min
 dt_TrafficLight <- 2
 

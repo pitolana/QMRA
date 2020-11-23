@@ -27,16 +27,12 @@ Asf_murai <- 6.66 # volar area of the index finger, 7 fingers from cadavers, @Mu
 Asf_peters <- (3.55 + 4.25)/2  # Index finger distal phalanx female and male, @Peters2009a
 Asf_sahmel <- 3.8 # Six participants, 3 fingers each, @Sahmel2015
 
-
 #Asf_min <- Asf_sahmel
 #Asd_max <- Asf_murai
 
-#  ------------------------------Method 3 ----------------------------------
-
-
-
-
-# output -------------------------------------------------------------------
+# output ---------------------------------------------------------------------
+# Both methods lead to similar results, min of 3.8 and 3.9, 
+# and max of 6.6 and 5.8 cm2. Method 1 was selected. 
 
 # save file
 # write.csv (df_XXX, file= outfile)
